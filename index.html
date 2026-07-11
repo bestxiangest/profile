@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta
+      name="description"
+      content="Sharpcaterpillar 的个人介绍与作品集，记录物联网、嵌入式、工业互联网和应用开发项目。"
+    />
+    <meta name="theme-color" content="#2b2c33" />
+    <title>Sharpcaterpillar | IoT Developer</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body class="is-loading">
+    <header class="header">
+      <a class="logo" href="#/hello/" data-route="hello" aria-label="返回首页">
+        <svg viewBox="0 0 228 50" role="img" aria-label="Sharpcaterpillar">
+          <g class="logo__mark" aria-hidden="true">
+            <path d="M22 8 9 25l13 17h10L19 25 32 8Z" />
+            <path d="M48 8 61 25 48 42H38l13-17L38 8Z" />
+            <path class="logo__slash" d="m42 2-15 46h9L51 2Z" />
+          </g>
+          <g class="logo__type">
+            <text x="76" y="23">SHARP</text>
+            <text x="76" y="43">CATERPILLAR</text>
+          </g>
+        </svg>
+      </a>
+
+      <button class="menu" type="button" aria-label="打开菜单" aria-expanded="false">
+        <span class="box tl"></span>
+        <span class="box tr"></span>
+        <span class="box bl"></span>
+        <span class="box br"></span>
+      </button>
+    </header>
+
+    <div class="loader" aria-hidden="true">
+      <svg viewBox="25 25 50 50">
+        <circle cx="50" cy="50" r="18" fill="none" stroke-width="3"></circle>
+      </svg>
+    </div>
+
+    <div class="menu-layer" hidden>
+      <button class="menu-layer__overlay" type="button" tabindex="-1" aria-label="关闭菜单"></button>
+      <nav class="primary-nav" aria-label="主导航">
+        <ul>
+          <li style="--order: 0"><a class="element-box" href="#/hello/" data-route="hello"><span class="text"><b>Ho</b><small>home</small></span><span class="element-icon">⌂</span></a></li>
+          <li style="--order: 1"><a class="element-box" href="#/about/" data-route="about"><span class="text"><b>Ab</b><small>about</small></span><span class="element-icon">◎</span></a></li>
+          <li style="--order: 2"><a class="element-box" href="#/experience/" data-route="experience"><span class="text"><b>Ex</b><small>experience</small></span><span class="element-icon">◇</span></a></li>
+          <li style="--order: 3"><a class="element-box" href="#/works/" data-route="works"><span class="text"><b>Wo</b><small>works</small></span><span class="element-icon">⌘</span></a></li>
+          <li style="--order: 4"><a class="element-box" href="#/stack/" data-route="stack"><span class="text"><b>St</b><small>stack</small></span><span class="element-icon">⚙</span></a></li>
+          <li style="--order: 5"><a class="element-box" href="#/contact/" data-route="contact"><span class="text"><b>Ct</b><small>contact</small></span><span class="element-icon">✦</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main id="main" aria-live="polite"></main>
+    <div class="route-status" role="status" aria-live="polite"></div>
+    <noscript>请启用 JavaScript 以浏览完整作品集和页面切换动画。</noscript>
+  </body>
+</html>
