@@ -1,6 +1,17 @@
 # Sharpcaterpillar Portfolio
 
-个人介绍与作品集静态站点。页面结构和动画节奏参考 `OriginSites/` 中保存的 Infinite Imaginations 本地镜像，内容全部替换为 Sharpcaterpillar 的个人经历与真实项目。
+面向保研、实习与就业场景的个人介绍与作品集静态站点。页面结构和动画节奏参考 `OriginSites/` 中保存的 Infinite Imaginations 本地镜像，内容来自真实简历、获奖证书、科研成果与项目经历。
+
+## 页面内容
+
+- `#/about/`：教育背景、方向与个人经历。
+- `#/achievements/`：GPA、专业排名、科研成果、重点奖项、学生荣誉与可放大的证书档案。
+- `#/experience/`：青岛华睿源科技有限公司工业互联网实习经历。
+- `#/works/`：开源、私有与企业项目作品集。
+- `#/esh-inspection/`、`#/label-check/`：两个企业项目的独立案例页。
+- `#/stack/`、`#/contact/`：技术栈与联系方式。
+
+网站发布经过压缩的竞赛与荣誉证书图片；个人证件照和公司内部资料不会随仓库发布。
 
 ## 本地预览
 
