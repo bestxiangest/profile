@@ -8,7 +8,7 @@ const profile = {
   company: "青岛华睿源科技有限公司",
   githubUrl: "https://github.com/bestxiangest",
   email: "13964140811@vip.163.com",
-  musicUrl: "https://music.sharpcaterpillar.top/",
+  musicUrl: "https://nas.lovezzn.com:13149",
   phone: "13964140811",
   gpa: "3.86 / 5",
   rank: "4 / 60",
@@ -29,7 +29,7 @@ const projects = [
     index: "01",
     title: "Industrial ESH Inspection",
     badge: "COMPANY / PRIVATE",
-    description: "公司无纸化系统的一部分。我主要做安全设备点检、安全隐患处理和总务巡检，也参与了权限、接口和巡检大屏的联调。",
+    description: "工业无纸化系统中的 ESH 巡检模块：安全设备点检、隐患闭环与总务巡检全链路；参与权限、接口联调及巡检 BI 大屏落地。",
     tags: ["Vue", "uni-app", "ThinkPHP", "MySQL", "Industrial IoT"],
     route: "esh-inspection",
     action: "Case study",
@@ -38,7 +38,7 @@ const projects = [
     index: "02",
     title: "VS Product Label Check",
     badge: "COMPANY / PRIVATE",
-    description: "公司交给我的独立任务。PDA 依次扫描系统标签和自制标签，检查物料、箱号、P/N 与数量，并保存核对记录。",
+    description: "独立交付的 PDA 成品标签核对工具：按客户规则比对系统标签与自制标签，校验物料、箱号、P/N 与数量，并沉淀可追溯记录。",
     tags: ["uni-app Vue 3", "PDA", "REST API", "Barcode", "AI-assisted"],
     route: "label-check",
     action: "Case study",
@@ -47,7 +47,7 @@ const projects = [
     index: "03",
     title: "Intelligent Guide Cane",
     badge: "OPEN SOURCE",
-    description: "以 ESP32-S3 为主控的智能导盲系统，做了本地避障、语音问答、步行导航、天气、GPS、小程序和 ESP32-CAM。",
+    description: "以 ESP32-S3 为核心的智能导盲系统：本地避障、语音问答、步行导航、天气与 GPS，并联动小程序与 ESP32-CAM。",
     tags: ["C", "ESP32-S3", "Flask", "ASR / TTS", "Mini Program"],
     href: "https://github.com/bestxiangest/Intelligent-Guide-Cane",
     action: "Repository",
@@ -56,7 +56,7 @@ const projects = [
     index: "04",
     title: "PIXELBEAT",
     badge: "PRIVATE SOURCE / LIVE",
-    description: "给自己做的像素风音乐站。支持歌单、搜索、私人 FM、歌词、评论、多音源播放和直连下载，也部署到了自己的 NAS。",
+    description: "自研像素风在线音乐站：歌单、搜索、私人 FM、歌词、评论、多音源播放与直链下载；自托管于 NAS 并对外可访问。",
     tags: ["Vue 3", "Vite", "Pinia", "Express", "Docker / NAS"],
     href: "https://music.sharpcaterpillar.top/",
     action: "Live site",
@@ -65,7 +65,7 @@ const projects = [
     index: "05",
     title: "Qt Calendar",
     badge: "OPEN SOURCE",
-    description: "用 Qt / C++ 写的桌面日历，可以看月历和全年视图、查询天气，也能把日程保存到本地 JSON 文件。",
+    description: "基于 Qt / C++ 的桌面日历：月历与全年视图、天气查询，以及本地 JSON 日程持久化。",
     tags: ["C++", "Qt Widgets", "Qt Network", "JSON", "Desktop"],
     href: "https://github.com/bestxiangest/Qt-Calendar",
     action: "Repository",
@@ -74,7 +74,7 @@ const projects = [
     index: "06",
     title: "Infusion Alarm System",
     badge: "OPEN SOURCE",
-    description: "从传感器采集一路做到云端和小程序的输液监测项目，包含 ESP32、ESP-NOW、华为云 IoTDA 和 Flask 大屏。",
+    description: "端到云输液监测链路：ESP32 采集与 ESP-NOW 组网、华为云 IoTDA 上云，Flask 大屏与小程序联动。",
     tags: ["ESP32", "ESP-NOW", "MQTT", "Huawei IoT", "Flask"],
     href: "https://github.com/bestxiangest/Intelligent-infusion-alarm-system",
     action: "Repository",
@@ -83,7 +83,7 @@ const projects = [
     index: "07",
     title: "TeamSync",
     badge: "OPEN SOURCE",
-    description: "面向团队协作场景的项目管理系统，包含看板、子任务、评论、活动流、周期计划、日历、通知、文件协作与管理大屏。",
+    description: "团队协作型项目管理系统：看板、子任务、评论与活动流，覆盖周期计划、日历、通知、文件协作与管理大屏。",
     tags: ["Java 21", "Spring Boot", "Vue 3", "PostgreSQL", "WebSocket"],
     href: "https://github.com/bestxiangest/TeamSync",
     action: "Repository",
@@ -166,13 +166,18 @@ function helloPage() {
           <div class="reveal" style="--order:0">
             <p>
               I'm <a href="#/about/" data-route="about">${profile.realName} / ${profile.name},</a>
-              ${profile.university}${profile.major}${profile.grade}学生。专业排名前 6.7%，做 AIoT、嵌入式和应用软件，
-              也有一年的工业互联网实习经历。
+              ${profile.university}${profile.major}${profile.grade}，专业排名前 6.7%。
+              日常在 AIoT、嵌入式和应用软件之间来回，中间插过一年工业互联网实习。
             </p>
             <p>
-              如果你在看保研材料，可以先看 <a href="#/achievements/" data-route="achievements">成绩与成果</a>；
-              如果更关心开发能力，可以翻翻我的 <a href="#/works/" data-route="works">项目</a>
-              和 <a href="#/experience/" data-route="experience">实习经历</a>。
+              最近写项目，我越来越习惯把 AI Agent 当成正式工具链的一环：先把需求边界和验收标准写清楚，
+              再让 Agent 分步拆任务、出草案、跑改写；关键路径、接口约定和上线结果还是自己盯。
+              它不会替我做判断，但能把重复劳动压下去，让我把时间留在架构取舍和现场联调上。
+            </p>
+            <p>
+              看保研材料的话，从 <a href="#/achievements/" data-route="achievements">成绩与成果</a> 开始比较顺；
+              想先摸清我实际能做什么，直接看 <a href="#/works/" data-route="works">项目</a>
+              和 <a href="#/experience/" data-route="experience">实习</a> 就行。
             </p>
           </div>
           <hr class="page-rule" />
@@ -200,16 +205,17 @@ function aboutPage() {
         <div class="two-col">
           <div class="reveal" style="--order:0">
             <p>
-              我是${profile.realName}，也用 ${profile.name} 这个名字写代码。目前在${profile.university}读${profile.major}，
-              GPA ${profile.gpa}，专业排名 ${profile.rank}。研究和项目兴趣主要在 AIoT、边缘智能与软件工程。
+              我是${profile.realName}，代码世界里多用 ${profile.name}。现就读于${profile.university}${profile.major}，
+              GPA ${profile.gpa}，专业排名 ${profile.rank}。研究与工程兴趣集中在 AIoT、边缘智能与软件工程。
             </p>
             <p>
-              我习惯把项目从传感器、嵌入式固件一路做到服务端、网页或 App。
-              现在用得比较多的是 <strong>STM32 / ESP32</strong>、Java、Qt、Vue、uni-app、Flask 与 Spring Boot。
+              习惯把链路做完整：从传感器与嵌入式固件，贯通到服务端、网页与 App。
+              当前高频技术栈为 <strong>STM32 / ESP32</strong>、Java、Qt、Vue、uni-app、Flask 与 Spring Boot。
             </p>
             <p>
-              除了课程和开发，我还担任班级团支部书记、通信电子创新基地负责人，
-              也参与新生帮扶与党支部组织工作。完整的 <a href="#/achievements/" data-route="achievements">竞赛、科研和荣誉</a> 单独整理在下一页。
+              学业与开发之外，担任班级团支部书记、通信电子创新基地负责人，
+              并参与新生帮扶与党支部组织工作。竞赛、科研与荣誉详见
+              <a href="#/achievements/" data-route="achievements">成果页</a>。
             </p>
           </div>
           <div class="about-skills reveal" style="--order:1">
@@ -255,7 +261,7 @@ function achievementsPage() {
         <div class="achievement-hero reveal" style="--order:0">
           <div>
             <span class="eyebrow">ACADEMIC RECORD / RESEARCH / HONORS</span>
-            <h2>把成绩写在纸上，<br /><span>也把想法做成东西。</span></h2>
+            <h2>成绩有据可查，<br /><span>想法落地成物。</span></h2>
           </div>
           <div class="academic-scoreboard" aria-label="学业数据">
             <div><strong>${profile.gpa}</strong><span>GPA</span></div>
@@ -268,7 +274,7 @@ function achievementsPage() {
           <div class="award-showcase__intro">
             <span class="record-no">01 / SELECTED AWARDS</span>
             <h3 id="award-showcase-title">重点奖项</h3>
-            <p>从程序设计、物联网系统到产品展示，我更看重把项目完整做出来，再带到赛场上接受检验。</p>
+            <p>从程序设计、物联网系统到产品展示——先把链路跑通，再上赛场接受检验。</p>
             <div class="award-counts">
               <div><strong>01</strong><span>国家级</span></div>
               <div><strong>06</strong><span>省区级</span></div>
@@ -297,18 +303,18 @@ function achievementsPage() {
           </article>
           <article class="record-card reveal" style="--order:3">
             <span class="record-no">03 / CAMPUS HONORS</span>
-            <h3>连续两学年的肯定</h3>
+            <h3>连续两学年的认可</h3>
             <div class="honor-strip"><strong>一等奖学金</strong><span>2023—2025</span></div>
             <div class="honor-strip"><strong>三好学生</strong><span>2023—2025</span></div>
             <div class="honor-strip"><strong>科技活动奖</strong><span>2023—2025</span></div>
-            <p class="record-note">三类荣誉均连续获得两学年。</p>
+            <p class="record-note">三类荣誉均连续两学年获得。</p>
           </article>
         </div>
 
         <section class="certificate-archive reveal" style="--order:4">
           <div class="certificate-archive__head">
             <div><span class="record-no">04 / CERTIFICATE ARCHIVE</span><h3>证书档案</h3></div>
-            <p>共 15 份材料。点击任意证书可以放大查看。</p>
+            <p>共 15 份材料。点击任一证书可放大查看。</p>
           </div>
           <div class="certificate-group">
             <div class="certificate-group__label"><b>09</b><span>学科竞赛<br />Competitions</span></div>
@@ -324,7 +330,7 @@ function achievementsPage() {
           <div><span class="record-no">05 / LEADERSHIP</span><h3>组织与实践</h3></div>
           <ul class="leadership-list">
             <li><b>团支部书记</b><span>物联网工程 2023-1 班</span></li>
-            <li><b>通信电子创新基地负责人</b><span>培训、竞赛组织与项目辅导</span></li>
+            <li><b>通信电子创新基地负责人</b><span>培训组织、竞赛统筹与项目辅导</span></li>
             <li><b>带班党员</b><span>计算机（ICT）2025-1 班</span></li>
             <li><b>组织委员</b><span>学院创新创业学生党支部</span></li>
           </ul>
@@ -351,28 +357,28 @@ function experiencePage() {
           <div class="experience-duration">ONE-YEAR INTERNSHIP<br />INDUSTRIAL INTERNET</div>
         </div>
         <p class="reveal" style="--order:1; margin-top:28px">
-          在公司实习的一年里，我主要维护无纸化系统的 ESH 巡检模块。
-          后来公司安排我做一套 VS 成品标签核对 APP，我在 AI 辅助下独立把 APP 搭了起来，并和现有 PC 端、后端一起联调。
+          一年工业互联网实习期间，主力维护无纸化系统中的 ESH 巡检模块；
+          随后独立承接 VS 成品标签核对 APP，在 AI 辅助下完成搭建，并与既有 PC 端、后端完成联调上线。
         </p>
         <div class="experience-grid">
           <article class="experience-card reveal" style="--order:2">
             <span class="work-label">01 / ESH INSPECTION</span>
             <h3>无纸化系统 ESH 巡检模块</h3>
             <ul>
-              <li>安全设备巡检：消防与环境设备任务、扫码点检和问题处理。</li>
-              <li>安全隐患巡检：新增隐患、待改善问题，以及从登记到整改的处理流程。</li>
-              <li>总务巡检：任务列表、开始巡检、问题记录与状态变更。</li>
-              <li>处理权限入口、接口联调，并配合巡检 BI 大屏展示。</li>
+              <li>安全设备巡检：消防与环境设备任务下发、扫码点检与问题闭环。</li>
+              <li>安全隐患巡检：隐患登记、待改善跟进，以及整改全流程状态流转。</li>
+              <li>总务巡检：任务列表、现场执行、问题记录与状态变更。</li>
+              <li>权限入口与接口联调，并配合巡检 BI 大屏展示落地。</li>
             </ul>
           </article>
           <article class="experience-card reveal" style="--order:3">
             <span class="work-label">02 / PRODUCT LABEL CHECK</span>
             <h3>VS 成品标签核对 PDA APP</h3>
             <ul>
-              <li>在 AI 辅助下独立完成新 APP，并接入现有 PC 管理端和后端。</li>
-              <li>支持 BYD、GEELY、CHERY 标签规则和多系统标签场景。</li>
-              <li>扫码时会检查系统标签、自制标签、数量和重复状态。</li>
-              <li>实现任务恢复、提交、详情、语音、震动和硬件扫码头输入。</li>
+              <li>AI 辅助下独立交付移动端，并接入既有 PC 管理端与后端服务。</li>
+              <li>覆盖 BYD、GEELY、CHERY 等客户标签规则与多系统标签场景。</li>
+              <li>扫码环节校验系统标签、自制标签、数量累计与重复状态。</li>
+              <li>任务恢复、提交、详情，以及语音、震动与硬件扫码头输入。</li>
             </ul>
           </article>
         </div>
@@ -410,7 +416,7 @@ function worksPage() {
       <div class="container">
         ${titleMarkup("works")}
         <div class="works-intro reveal" style="--order:0">
-          <p>这里既有开源项目，也有公司项目和私有作品。公司项目新增了独立案例页，只讲业务、职责和技术实现，不公开内部代码与数据。</p>
+          <p>涵盖开源、企业交付与自研私有作品。企业项目另设案例页，聚焦业务边界、职责与技术实现，不公开内部代码与数据。</p>
           <a class="button-link" href="${profile.githubUrl}?tab=repositories" target="_blank" rel="noreferrer">Public repositories <span>↗</span></a>
         </div>
         <div class="project-grid">${projects.map(projectMarkup).join("")}</div>
@@ -427,12 +433,12 @@ function caseStudyPage(kind) {
     title: "无纸化系统 ESH 巡检模块",
     role: "模块开发与维护",
     context: "青岛华睿源科技有限公司 · 工业互联网",
-    summary: "将安全设备、安全隐患和总务巡检从纸面记录搬到移动端，让任务下发、现场扫码、问题登记、整改和看板统计能够接在一起。",
+    summary: "把安全设备、安全隐患与总务巡检从纸面迁到移动端，串起任务下发、现场扫码、问题登记、整改闭环与看板统计。",
     facts: [["范围", "3 类巡检业务"], ["终端", "PC / APP / BI"], ["周期", "一年实习期间"]],
     sections: [
-      ["我负责的部分", ["维护 ESH 巡检相关页面、接口与任务状态处理。", "参与安全设备点检、安全隐患登记与整改、总务巡检流程。", "配合权限入口、移动端扫码和巡检 BI 大屏联调。"]],
-      ["业务怎么跑", ["PC 端配置任务和巡检对象。", "现场人员在移动端接单、扫码、记录结果或提交问题。", "问题进入后续处理流程，状态和结果回到管理端与 BI 看板。"]],
-      ["技术与难点", ["Vue / uni-app 负责 PC 与移动端界面，ThinkPHP 和 MySQL 承接业务数据。", "现场网络、权限差异和历史数据让状态处理比普通表单更复杂。", "修改需要兼顾已有流程，联调时以真实后端返回为准。"]],
+      ["我负责的部分", ["维护 ESH 巡检相关页面、接口与任务状态流转。", "参与安全设备点检、隐患登记与整改、总务巡检流程落地。", "配合权限入口、移动端扫码及巡检 BI 大屏联调。"]],
+      ["业务怎么跑", ["PC 端配置任务与巡检对象。", "现场人员在移动端接单、扫码、记录结果或提交问题。", "问题进入后续处理流程，状态与结果回写管理端与 BI 看板。"]],
+      ["技术与难点", ["Vue / uni-app 承载 PC 与移动界面，ThinkPHP 与 MySQL 承接业务数据。", "现场网络、权限差异与历史数据使状态处理远复杂于普通表单。", "改动须兼容既有流程，联调以真实后端返回为准。"]],
     ],
   } : {
     route: "label-check",
@@ -440,12 +446,12 @@ function caseStudyPage(kind) {
     title: "VS 成品标签核对 PDA APP",
     role: "独立完成移动端",
     context: "青岛华睿源科技有限公司 · 生产现场",
-    summary: "给生产现场做的一套 PDA 标签核对工具。操作员依次扫描系统标签和自制标签，APP 按客户规则核对物料、箱号、P/N、数量与重复状态，并保存可追溯记录。",
+    summary: "面向产线的 PDA 标签核对工具：依次扫描系统标签与自制标签，按客户规则校验物料、箱号、P/N、数量与重复状态，并沉淀可追溯记录。",
     facts: [["客户规则", "BYD / GEELY / CHERY"], ["输入", "PDA 硬件扫码头"], ["反馈", "语音 / 震动 / 状态色"]],
     sections: [
-      ["我负责的部分", ["在 AI 辅助下独立搭建 APP，并接入公司现有 PC 管理端与后端。", "实现任务领取、扫描核对、异常提示、任务恢复、提交和结果详情。", "处理硬件扫码头输入、连续扫描、语音提示与震动反馈。"]],
-      ["业务怎么跑", ["管理端维护不同客户和标签类型的解析规则。", "PDA 获取任务后扫描系统标签，再扫描对应的自制标签。", "APP 完成字段比对、数量累计和重复检查，确认无误后提交记录。"]],
-      ["技术与难点", ["uni-app / Vue 3 构建移动端，REST API 对接任务、规则和记录数据。", "不同客户二维码格式不一致，需要由配置驱动解析与比对。", "生产现场要求反馈直接、恢复可靠，失败时不能伪造完成状态。"]],
+      ["我负责的部分", ["AI 辅助下独立搭建 APP，并接入公司既有 PC 管理端与后端。", "实现任务领取、扫描核对、异常提示、任务恢复、提交与结果详情。", "处理硬件扫码头输入、连续扫描、语音提示与震动反馈。"]],
+      ["业务怎么跑", ["管理端维护各客户与标签类型的解析规则。", "PDA 领取任务后先扫系统标签，再扫对应自制标签。", "APP 完成字段比对、数量累计与重复检查，确认无误后提交记录。"]],
+      ["技术与难点", ["uni-app / Vue 3 构建移动端，REST API 对接任务、规则与记录数据。", "客户二维码格式不一，须由配置驱动解析与比对逻辑。", "产线要求反馈即时、恢复可靠，失败时不得伪造完成状态。"]],
     ],
   };
 
@@ -477,7 +483,7 @@ function caseStudyPage(kind) {
             </article>`).join("")}
         </div>
         <div class="case-footer reveal" style="--order:6">
-          <p>该项目为公司内部系统，页面内容仅说明本人参与的工作，不展示源代码、客户数据或内部界面。</p>
+          <p>本项目为公司内部系统。本页仅说明本人参与的工作范围与实现要点，不展示源代码、客户数据或内部界面。</p>
           <a class="button-link" href="mailto:${profile.email}">联系了解更多 <span>↗</span></a>
         </div>
       </div>
@@ -489,7 +495,7 @@ function stackPage() {
     <section class="page page--stack" data-page="stack">
       <div class="container">
         ${titleMarkup("stack")}
-        <p class="reveal" style="--order:0">下面这些技术都在项目里用过，熟悉程度不完全一样。我按用途分了组，找起来会比一长串 Logo 更方便。</p>
+        <p class="reveal" style="--order:0">以下技术均在真实项目中使用过，熟练度因场景而异。按用途分组，便于快速定位，而非堆砌一长串 Logo。</p>
         <hr class="page-rule" />
         <div class="stack-grid">
           <article class="stack-group reveal" style="--order:1"><span>01</span><h2>Languages</h2><ul class="stack-list"><li>C</li><li>C++</li><li>Java</li><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>PHP</li><li>SQL</li></ul></article>
@@ -502,12 +508,12 @@ function stackPage() {
         <div class="evidence reveal" style="--order:7">
           <h2>这些技术用在了哪里</h2>
           <ul class="evidence-list">
-            <li><b>Qt</b><span>电子日历、天气网络请求和 JSON 日程持久化。</span></li>
-            <li><b>Java</b><span>SmartIoT Android AI 物联网助手，包含流式对话、多模态附件和 SQLite。</span></li>
-            <li><b>RTOS</b><span>基于 STM32F103 与 uC/OS-II 的多任务电梯调度课程设计。</span></li>
+            <li><b>Qt</b><span>桌面电子日历：天气网络请求与 JSON 日程持久化。</span></li>
+            <li><b>Java</b><span>SmartIoT Android AI 物联网助手：流式对话、多模态附件与 SQLite。</span></li>
+            <li><b>RTOS</b><span>STM32F103 + uC/OS-II 多任务电梯调度课程设计。</span></li>
             <li><b>STM32</b><span>BearPi 智慧温室：传感器采集、LCD、NB-IoT AT 通信与分层固件。</span></li>
-            <li><b>Vue</b><span>PIXELBEAT、TeamSync、工业 PC 管理端和巡检 BI 大屏。</span></li>
-            <li><b>IoT</b><span>导盲杖、输液监测、智慧温室和数字孪生救援方向实践。</span></li>
+            <li><b>Vue</b><span>PIXELBEAT、TeamSync、工业 PC 管理端与巡检 BI 大屏。</span></li>
+            <li><b>IoT</b><span>导盲杖、输液监测、智慧温室及数字孪生救援方向实践。</span></li>
           </ul>
         </div>
       </div>
@@ -520,38 +526,52 @@ function contactPage() {
     <section class="page page--contact" data-page="contact">
       <div class="container">
         ${titleMarkup("contact")}
-        <div class="contact-stage">
-          <div class="contact-copy reveal" style="--order:0">
+        <div class="contact-hero reveal" style="--order:0">
+          <div class="contact-hero__copy">
             <span class="eyebrow">POSTGRADUATE / INTERNSHIP / FULL-TIME</span>
-            <h2>一起研究，<br /><span>一起做事。</span></h2>
-            <p>我正在关注 AIoT、边缘智能和软件工程方向的保研机会，也欢迎实习、校招与项目交流。可以在邮件里简单说明来意，看到后会尽快回复。</p>
-            <div class="availability">目前可通过邮件或 GitHub 联系</div>
+            <h2>有事可以说，<br /><span>有空会回。</span></h2>
+            <p>
+              正关注 AIoT、边缘智能与软件工程方向的保研机会，也欢迎实习、校招与项目交流。
+              邮件里写清来意即可，收到后会尽快回复。
+            </p>
+            <div class="availability">邮件 / GitHub 优先</div>
           </div>
-          <div class="contact-profile reveal" style="--order:1">
-            <div class="contact-monogram"><span>ZN</span><small>SHARPCATERPILLAR</small></div>
+          <aside class="contact-meta" aria-label="基本信息">
+            <div class="contact-meta__brand">
+              <b>ZN</b>
+              <div>
+                <strong>${profile.realName}</strong>
+                <small>${profile.name}</small>
+              </div>
+            </div>
             <dl>
               <div><dt>School</dt><dd>${profile.university}</dd></div>
               <div><dt>Major</dt><dd>${profile.major}</dd></div>
-              <div><dt>Focus</dt><dd>AIoT · Edge Intelligence · Software</dd></div>
-              <div><dt>Based in</dt><dd>Nanchang, China · UTC+8</dd></div>
+              <div><dt>Focus</dt><dd>AIoT · Edge · Software</dd></div>
+              <div><dt>Based in</dt><dd>Nanchang · UTC+8</dd></div>
             </dl>
-          </div>
+          </aside>
         </div>
-        <a class="email-marquee reveal" style="--order:2" href="mailto:${profile.email}">
-          <span>WRITE TO ME</span><strong>${profile.email}</strong><b>↗</b>
+        <a class="email-marquee reveal" style="--order:1" href="mailto:${profile.email}">
+          <span>WRITE TO ME</span>
+          <strong>${profile.email}</strong>
+          <b aria-hidden="true">↗</b>
         </a>
-        <div class="contact-cards reveal" style="--order:3">
+        <div class="contact-cards reveal" style="--order:2">
           <a class="contact-card" href="${profile.githubUrl}" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49l-.01-1.92c-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.91a9.4 9.4 0 0 1 2.5.35c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.24 10.24 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
-            <span><small>CODE &amp; PROJECTS</small><strong>GitHub / ${profile.github}</strong></span><b>↗</b>
+            <span><small>CODE &amp; PROJECTS</small><strong>GitHub / ${profile.github}</strong></span>
+            <b aria-hidden="true">↗</b>
           </a>
           <a class="contact-card" href="${profile.musicUrl}" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18V5l10-2v13M9 9l10-2M6.5 21C4.57 21 3 19.88 3 18.5S4.57 16 6.5 16 10 17.12 10 18.5 8.43 21 6.5 21Zm10-2c-1.93 0-3.5-1.12-3.5-2.5s1.57-2.5 3.5-2.5 3.5 1.12 3.5 2.5-1.57 2.5-3.5 2.5Z"/></svg>
-            <span><small>LIVE PRODUCT</small><strong>PIXELBEAT Music</strong></span><b>↗</b>
+            <span><small>LIVE PRODUCT</small><strong>PIXELBEAT Music</strong></span>
+            <b aria-hidden="true">↗</b>
           </a>
           <a class="contact-card" href="tel:${profile.phone}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.3 3.7 9.4 7c.3.5.2 1.1-.2 1.5L7.8 9.9a14.2 14.2 0 0 0 6.3 6.3l1.4-1.4c.4-.4 1-.5 1.5-.2l3.3 2.1c.5.3.7.9.5 1.4l-.8 2.1c-.2.5-.7.8-1.2.8C10.1 21 3 13.9 3 5.2c0-.5.3-1 .8-1.2l2.1-.8c.5-.2 1.1 0 1.4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span><small>PHONE</small><strong>${profile.phone}</strong></span><b>↗</b>
+            <span><small>PHONE</small><strong>${profile.phone}</strong></span>
+            <b aria-hidden="true">↗</b>
           </a>
         </div>
       </div>

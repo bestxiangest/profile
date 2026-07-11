@@ -1684,78 +1684,109 @@ a.project-card:focus-visible {
   font-size: 1.5rem;
 }
 
-.contact-stage {
+.contact-hero {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 56px;
-  align-items: stretch;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 32px;
+  border-bottom: 3px solid var(--ink);
 }
 
-.contact-copy {
-  padding: 10px 0 22px;
+.contact-hero__copy {
+  min-width: 0;
 }
 
-.contact-copy h2 {
-  margin: 10px 0 24px;
+.contact-hero__copy h2 {
+  max-width: 14ch;
+  margin: 12px 0 20px;
+  font-size: clamp(3.4rem, 5.4vw, 5.6rem);
+  letter-spacing: -0.06em;
+  line-height: 1.02;
 }
 
-.contact-profile {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+.contact-hero__copy h2 span {
+  color: var(--blue);
+}
+
+.contact-hero__copy p {
+  max-width: 36em;
+  margin: 0;
+}
+
+.contact-meta {
   border: 3px solid var(--ink);
 }
 
-.contact-monogram {
+.contact-meta__brand {
   display: flex;
-  min-height: 250px;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-bottom: 3px solid var(--ink);
   background: var(--ink);
   color: #fff;
 }
 
-.contact-monogram span {
-  color: var(--blue);
-  font-size: 6rem;
-  font-weight: 800;
-  letter-spacing: -0.09em;
-  line-height: 1;
-}
-
-.contact-monogram small {
-  margin-top: 12px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  writing-mode: vertical-rl;
-}
-
-.contact-profile dl {
+.contact-meta__brand b {
   display: grid;
+  width: 52px;
+  height: 52px;
+  flex: none;
+  place-items: center;
+  border: 2px solid rgb(255 255 255 / 22%);
+  color: var(--blue);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.contact-meta__brand strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.contact-meta__brand small {
+  display: block;
+  margin-top: 3px;
+  color: rgb(255 255 255 / 58%);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-meta dl {
   margin: 0;
 }
 
-.contact-profile dl div {
-  padding: 13px 16px;
-  border-bottom: 1px solid rgb(43 44 51 / 25%);
+.contact-meta dl div {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding: 13px 18px;
+  border-bottom: 1px solid rgb(43 44 51 / 20%);
 }
 
-.contact-profile dl div:last-child {
+.contact-meta dl div:last-child {
   border-bottom: 0;
 }
 
-.contact-profile dt {
+.contact-meta dt {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.contact-profile dd {
-  margin: 3px 0 0;
-  font-size: 1.2rem;
+.contact-meta dd {
+  margin: 0;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 
@@ -1766,7 +1797,7 @@ a.project-card:focus-visible {
   gap: 24px;
   align-items: center;
   margin-top: 24px;
-  padding: 20px 24px;
+  padding: 22px 26px;
   overflow: hidden;
   background: var(--blue);
   color: #fff;
@@ -1784,6 +1815,11 @@ a.project-card:focus-visible {
 .email-marquee:hover::after,
 .email-marquee:focus-visible::after {
   transform: none;
+}
+
+.email-marquee:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
 }
 
 .email-marquee > * {
@@ -1807,6 +1843,7 @@ a.project-card:focus-visible {
 
 .email-marquee b {
   font-size: 2.6rem;
+  line-height: 1;
 }
 
 .contact-cards {
@@ -1818,7 +1855,7 @@ a.project-card:focus-visible {
 
 .contact-card {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) auto;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
   gap: 14px;
   align-items: center;
   min-height: 92px;
@@ -1836,8 +1873,8 @@ a.project-card:focus-visible {
 }
 
 .contact-card svg {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
 }
 
 .contact-card span small,
@@ -1852,10 +1889,16 @@ a.project-card:focus-visible {
   letter-spacing: 0.09em;
 }
 
+.contact-card:hover span small,
+.contact-card:focus-visible span small {
+  color: rgb(255 255 255 / 55%);
+}
+
 .contact-card span strong {
   margin-top: 4px;
   overflow: hidden;
   font-size: 1.2rem;
+  font-weight: 800;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1863,79 +1906,14 @@ a.project-card:focus-visible {
 .contact-card > b {
   color: var(--blue);
   font-size: 1.8rem;
-}
-
-.contact-card--plain {
-  grid-template-columns: 58px 1fr;
-}
-
-.contact-card__mark {
-  color: var(--blue);
-  font-size: 2.3rem;
-  font-weight: 800;
-  letter-spacing: -0.08em;
-}
-
-.contact-copy h2 {
-  margin: 0 0 25px;
-  font-size: clamp(4rem, 7vw, 7rem);
-  letter-spacing: -0.07em;
-  line-height: 0.92;
-}
-
-.contact-copy h2 span {
-  color: var(--blue);
-}
-
-.contact-links {
-  display: grid;
-  gap: 12px;
-}
-
-.contact-link {
-  position: relative;
-  display: flex;
-  min-height: 72px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  overflow: hidden;
-  border: 3px solid var(--ink);
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.contact-link::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: var(--ink);
-  content: "";
-  transform: translateX(-101%);
-  transition: transform 0.45s var(--expo);
-}
-
-.contact-link:hover,
-.contact-link:focus-visible {
-  color: #fff;
-  outline: none;
-}
-
-.contact-link:hover::before,
-.contact-link:focus-visible::before {
-  transform: none;
-}
-
-.contact-link b {
-  color: var(--blue);
-  font-size: 2rem;
+  line-height: 1;
 }
 
 .availability {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 24px;
   color: var(--muted);
   font-size: 1rem;
   font-weight: 700;
@@ -1946,6 +1924,7 @@ a.project-card:focus-visible {
 .availability::before {
   width: 9px;
   height: 9px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: var(--blue);
   box-shadow: 0 0 0 5px rgb(33 150 243 / 12%);
@@ -2101,7 +2080,7 @@ a.project-card:focus-visible {
   .two-col,
   .contact-layout,
   .achievement-hero,
-  .contact-stage,
+  .contact-hero,
   .case-hero {
     grid-template-columns: 1fr;
   }
@@ -2255,17 +2234,25 @@ a.project-card:focus-visible {
     flex-direction: column;
   }
 
-  .contact-profile {
-    grid-template-columns: 100px minmax(0, 1fr);
+  .contact-hero {
+    gap: 28px;
+    align-items: start;
+    padding-bottom: 24px;
   }
 
-  .contact-monogram {
-    min-height: 230px;
+  .contact-hero__copy h2 {
+    max-width: none;
+    font-size: clamp(3.2rem, 11vw, 4.6rem);
+  }
+
+  .contact-meta dl div {
+    grid-template-columns: 78px minmax(0, 1fr);
+    padding: 12px 14px;
   }
 
   .email-marquee {
     grid-template-columns: 1fr auto;
-    gap: 8px;
+    gap: 8px 12px;
     padding: 16px;
   }
 
@@ -2275,6 +2262,8 @@ a.project-card:focus-visible {
 
   .email-marquee strong {
     font-size: 1.55rem;
+    white-space: normal;
+    word-break: break-all;
   }
 
   .featured-certificates,
