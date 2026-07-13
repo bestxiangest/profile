@@ -58,7 +58,7 @@ const projects = [
     badge: "PRIVATE SOURCE / LIVE",
     description: "自研像素风在线音乐站：歌单、搜索、私人 FM、歌词、评论、多音源播放与直链下载；自托管于 NAS 并对外可访问。",
     tags: ["Vue 3", "Vite", "Pinia", "Express", "Docker / NAS"],
-    href: "https://music.sharpcaterpillar.top/",
+    href: "https://nas.lovezzn.com:13149",
     action: "Live site",
   },
   {
