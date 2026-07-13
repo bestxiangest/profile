@@ -40,8 +40,8 @@ const projects = [
     index: "02",
     title: "Industrial ESH Inspection",
     badge: "COMPANY / PRIVATE",
-    description: "工业无纸化系统 ESH 巡检模块维护：隐患/点检/总务链路问题修复，覆盖列表导出、BI 大屏筛选刷新、节假日与邮箱配置等生产交付。",
-    tags: ["Vue", "uni-app", "ThinkPHP", "MySQL", "BI Dashboard"],
+    description: "无纸化系统 ESH 巡检模块升级与维护：设备点检计划/任务/问题、隐患排查、节假日与邮件配置，以及巡检 BI 大屏状态筛选与导出联调。",
+    tags: ["Vue 3", "ThinkPHP 6", "MySQL", "BI Dashboard", "Element Plus"],
     route: "esh-inspection",
     action: "Case study",
   },
@@ -304,9 +304,9 @@ function achievementsPage() {
             <span class="record-no">02 / RESEARCH OUTPUTS</span>
             <h3>科研与知识产权</h3>
             <div class="record-item">
-              <span class="record-state">第一发明人 · 实质审查阶段</span>
+              <span class="record-state">第一发明人 · 已公布 · 尚未授权</span>
               <h4>一种基于多源信息感知的智慧校园电子班牌系统及方法</h4>
-              <p>发明专利申请 · CN 121747168 A · 2026</p>
+              <p>发明专利申请 · 申请号 202511818264.2 · 公布号 CN 121747168 A · 2025.12 申请 / 2026.03 公布</p>
             </div>
             <div class="record-item">
               <span class="record-state">核心开发 · 已登记</span>
@@ -370,8 +370,9 @@ function experiencePage() {
           <div class="experience-duration">2026.06 — PRESENT<br />${profile.role.toUpperCase()}</div>
         </div>
         <p class="reveal" style="--order:1; margin-top:28px">
-          在制造业现场软件交付中，主导 VS 成品标签核对系统（后端 / PC / PDA 全栈），
-          并负责无纸化系统 ESH 巡检模块的问题修复与联调上线；日常结合 AI Agent 提效，上线决策仍坚持人工审查。
+          在制造业无纸化系统上，主导 VS 成品标签核对系统（后端 / PC / PDA 全栈），
+          并参与 ESH 巡检模块的结构升级与持续维护（设备点检、隐患排查、BI 大屏与邮件通知）；
+          日常结合 AI Agent 提效，上线决策仍坚持人工审查。
         </p>
         <div class="experience-grid">
           <article class="experience-card reveal" style="--order:2">
@@ -386,12 +387,12 @@ function experiencePage() {
           </article>
           <article class="experience-card reveal" style="--order:3">
             <span class="work-label">02 / ESH INSPECTION</span>
-            <h3>无纸化系统 ESH 巡检维护</h3>
+            <h3>无纸化系统 ESH 巡检（升级 + 维护）</h3>
             <ul>
-              <li>修复安全隐患列表/导出历史数据混入、BI 大屏状态筛选与滚动刷新等问题。</li>
-              <li>处理隐患导出、节假日设置、邮箱配置、设备点检异常详情与日期回填等场景。</li>
-              <li>结合构建与接口冒烟验证交付，保证改动兼容既有巡检状态流转。</li>
-              <li>覆盖 PC / APP / BI 多端联调，业务完成态以后端真实返回为准。</li>
+              <li>参与 PC 端 ESH 路由与菜单重构：设备管理、点检计划/任务/问题、排查管理与节假日设置。</li>
+              <li>隐患列表支持安全/消防/环境多类型接口与导出，补齐隐患类型筛选与责任人检索。</li>
+              <li>后端联调巡检任务调度、问题状态流转、验收权限与安全邮件（含隐患类型字段）。</li>
+              <li>巡检 BI 大屏：未完成数据、状态筛选映射、部门导出与多端联调验证。</li>
             </ul>
           </article>
         </div>
@@ -442,16 +443,29 @@ function caseStudyPage(kind) {
   const isEsh = kind === "esh-inspection";
   const data = isEsh ? {
     route: "esh-inspection",
-    eyebrow: "COMPANY PROJECT / INDUSTRIAL INSPECTION",
+    eyebrow: "COMPANY PROJECT / INDUSTRIAL ESH",
     title: "无纸化系统 ESH 巡检模块",
-    role: "前后端问题修复与联调",
+    role: "模块升级与持续维护",
     context: "青岛华睿源科技有限公司 · 软件开发实习",
-    summary: "在既有巡检业务上做生产级维护：安全隐患、设备点检与总务链路的缺陷修复，覆盖列表导出、BI 大屏、配置项与状态回写，保证改动可上线。",
-    facts: [["范围", "隐患 / 点检 / 总务"], ["终端", "PC / APP / BI"], ["方式", "构建 + 接口冒烟"]],
+    summary: "ESH（Environment / Safety / Health）巡检是无纸化系统中的安全业务域：覆盖设备台账、点检计划与任务、设备问题闭环、隐患排查，以及 BI 大屏与邮件通知。本人参与模块结构升级，并在生产环境持续维护。",
+    facts: [["业务域", "设备点检 + 隐患排查"], ["终端", "PC 管理端 / BI"], ["栈", "Vue 3 + ThinkPHP 6"]],
     sections: [
-      ["我负责的部分", ["修复隐患列表/导出历史数据混入、BI 状态筛选与滚动刷新等问题。", "处理隐患导出、节假日设置、邮箱配置、点检异常详情与日期回填。", "结合构建与接口冒烟验证交付，日常用 AI Agent 提效并坚持人工审查上线。"]],
-      ["业务怎么跑", ["PC 端配置任务与巡检对象。", "现场在移动端接单、扫码、记录结果或提交问题。", "问题进入后续处理，状态与结果回写管理端与 BI 看板。"]],
-      ["技术与难点", ["Vue / uni-app + ThinkPHP + MySQL 的既有系统上做最小安全改动。", "历史数据与权限差异让状态处理远复杂于普通表单。", "业务完成态以后端返回为准，失败路径不得伪造成功。"]],
+      ["我负责的部分", [
+        "参与 PC 端 ESH 菜单与路由升级：设备管理（基础设备 / 点检计划 / 节假日 / 点检任务 / 设备问题）、排查管理（日常/专项隐患）。",
+        "隐患列表按安全 / 消防 / 环境切换接口与导出，补齐隐患类型、责任人等筛选维度。",
+        "后端侧联调巡检任务调度（InsTask）、问题模型状态流转、验收权限与安全邮件（邮件正文纳入隐患类型）。",
+        "巡检 BI 大屏：未完成隐患列表、状态筛选映射、部门维度导出与接口联调。",
+      ]],
+      ["业务怎么跑", [
+        "管理端维护消防 / 环境等设备台账与点检计划，可配置节假日规则。",
+        "系统按计划生成点检任务；现场执行后回写结果，异常进入设备问题闭环。",
+        "隐患排查支持登记、处理、验收；大屏按状态聚合展示，邮件用于安全通知触达。",
+      ]],
+      ["技术与难点", [
+        "在既有 ThinkPHP 6 + Vue 3 工业系统上做结构升级，需兼容历史权限、旧 URL 重定向与多类型隐患接口。",
+        "大屏状态枚举与业务库 status 不完全一一对应，筛选与导出逻辑要单独映射。",
+        "改动面向生产：任务完成态、验收权限与邮件内容以后端真实数据为准，避免前端伪造。",
+      ]],
     ],
   } : {
     route: "label-check",

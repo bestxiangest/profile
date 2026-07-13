@@ -6,7 +6,7 @@
 
 - `#/about/`：教育背景、软件向定位与能力结构
 - `#/achievements/`：GPA、专业排名、科研成果、重点奖项、学生荣誉与证书档案
-- `#/experience/`：青岛华睿源科技有限公司软件开发实习（标签核对主导 + ESH 维护）
+- `#/experience/`：青岛华睿源科技有限公司软件开发实习（标签核对主导 + ESH 升级维护）
 - `#/works/`：企业交付、全栈开源、AIoT 与自研产品
 - `#/label-check/`、`#/esh-inspection/`：企业项目案例页
 - `#/stack/`、`#/contact/`：技术栈与联系方式
