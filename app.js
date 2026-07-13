@@ -7,6 +7,7 @@ const profile = {
   grade: "2027 届",
   company: "青岛华睿源科技有限公司",
   role: "软件开发实习生",
+  internPeriod: "2025.06 — 2026.06",
   githubUrl: "https://github.com/bestxiangest",
   email: "13964140811@vip.163.com",
   musicUrl: "https://nas.lovezzn.com:13149",
@@ -175,20 +176,19 @@ function helloPage() {
           ${titleMarkup("hello")}
           <div class="reveal" style="--order:0">
             <p>
-              I'm <a href="#/about/" data-route="about">${profile.realName} / ${profile.name},</a>
-              ${profile.university}${profile.major}${profile.grade}，专业排名前 6.7%。
-              路线偏软件：全栈、Java 后端与 AI 应用为主，AIoT / 嵌入式作硬实力补充；
-              目前在${profile.company}做${profile.role}。
+              我是 <a href="#/about/" data-route="about">${profile.realName}</a>，
+              网上多用 ${profile.name}。${profile.university}${profile.major}，${profile.grade}，专业排名前 6.7%。
+              做事偏软件一侧：业务系统、全栈与 Java 后端写得最多，AIoT 与嵌入式也碰，用来把端到云串起来。
             </p>
             <p>
-              写业务时习惯把链路做完整——需求拆解、接口与表结构、前后端联调、测试与上线。
-              也会把 Claude Code / Codex / OpenCode 等 AI Agent 放进正式工具链：先写清边界和验收，
-              再让 Agent 分步出草案与改写；状态流转、权限与数据一致性仍由自己审查拍板。
+              ${profile.internPeriod} 在${profile.company}做过一年${profile.role}，
+              现场交付多过纸上方案。上手一件事先问清边界，再落到表结构、接口和联调；
+              工具会用 AI 加快起草，但状态、权限和上线结果仍自己过一遍。
             </p>
             <p>
-              想看交付能力，直接看 <a href="#/works/" data-route="works">项目</a>
-              和 <a href="#/experience/" data-route="experience">实习</a>；
-              成绩、竞赛与知识产权在 <a href="#/achievements/" data-route="achievements">成果页</a>。
+              项目与经历见 <a href="#/works/" data-route="works">作品</a>
+              与 <a href="#/experience/" data-route="experience">实习</a>；
+              成绩、竞赛与知识产权在 <a href="#/achievements/" data-route="achievements">成果</a>。
             </p>
           </div>
           <hr class="page-rule" />
@@ -367,12 +367,12 @@ function experiencePage() {
             <span class="eyebrow">SOFTWARE DEVELOPMENT INTERN</span>
             <h2>${profile.company}</h2>
           </div>
-          <div class="experience-duration">2026.06 — PRESENT<br />${profile.role.toUpperCase()}</div>
+          <div class="experience-duration">${profile.internPeriod}<br />ONE-YEAR INTERNSHIP</div>
         </div>
         <p class="reveal" style="--order:1; margin-top:28px">
-          在制造业无纸化系统上，主导 VS 成品标签核对系统（后端 / PC / PDA 全栈），
-          并参与 ESH 巡检模块的结构升级与持续维护（设备点检、隐患排查、BI 大屏与邮件通知）；
-          日常结合 AI Agent 提效，上线决策仍坚持人工审查。
+          一年${profile.role}期间，在制造业无纸化系统上主导 VS 成品标签核对系统（后端 / PC / PDA 全栈），
+          并参与 ESH 巡检模块的结构升级与持续维护（设备点检、隐患排查、BI 大屏与邮件通知）。
+          日常用 AI Agent 提效，上线前对关键路径做人工审查。
         </p>
         <div class="experience-grid">
           <article class="experience-card reveal" style="--order:2">
@@ -535,12 +535,12 @@ function stackPage() {
         <div class="evidence reveal" style="--order:7">
           <h2>这些技术用在了哪里</h2>
           <ul class="evidence-list">
-            <li><b>Java / Spring Boot</b><span>TeamSync：权限、看板任务、通知提醒、附件与工作台统计。</span></li>
-            <li><b>ThinkPHP + Vue + uni-app</b><span>标签核对系统与 ESH 巡检：企业业务闭环与生产联调。</span></li>
-            <li><b>Flask / JWT</b><span>导盲系统云端中枢、校园二手交易 REST 与统一鉴权。</span></li>
-            <li><b>Vue 3</b><span>PIXELBEAT、TeamSync 前端、工业 PC 管理端与 BI 大屏。</span></li>
-            <li><b>AI Agent</b><span>需求拆解、代码生成与重构联调；关键路径人工审查验收。</span></li>
-            <li><b>AIoT</b><span>导盲杖、输液监测等端云协同；补齐从设备到应用的完整链路。</span></li>
+            <li><b>TeamSync</b><span>Spring Boot 3 分层接口 + Vue 看板：权限、任务流、通知与工作台统计。</span></li>
+            <li><b>标签核对</b><span>ThinkPHP 规则与任务接口，Vue 管理端配置，uni-app PDA 扫码提交。</span></li>
+            <li><b>ESH 巡检</b><span>点检计划/隐患状态流转，BI 大屏筛选导出，安全邮件字段联调。</span></li>
+            <li><b>导盲系统</b><span>ESP32-S3 端侧 + Flask 语音中枢 + 小程序监护，竞赛落地。</span></li>
+            <li><b>PIXELBEAT</b><span>Vue 3 自托管音乐站：歌单、播放与 NAS 部署。</span></li>
+            <li><b>AI 工具链</b><span>用 Agent 加速起草与改写，状态、权限与上线结果仍人工验收。</span></li>
           </ul>
         </div>
       </div>
