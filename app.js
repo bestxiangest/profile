@@ -12,9 +12,13 @@ const profile = {
   email: "13964140811@vip.163.com",
   musicUrl: "https://nas.lovezzn.com:13149",
   phone: "13964140811",
-  gpa: "3.86 / 5",
-  rank: "4 / 60",
+  gpa: "3.87 / 5.00",
+  gpaShort: "3.87",
+  rank: "4 / 63",
+  rankPercent: "前 6.3%",
+  classRank: "2 / 28",
   cet4: "501",
+  cet6: "已通过",
   party: "中共党员",
 };
 
@@ -30,87 +34,106 @@ const navItems = [
 const projects = [
   {
     index: "01",
+    title: "Industrial Agent Gateway",
+    badge: "COMPANY / PRIVATE",
+    description: "把设备资产管理平台的业务能力按 MCP 协议开放给智能体调用。9 个工具分只读与写两档，传输层为规避依赖冲突自己手写，写操作必须过票据式人工确认闸门才会真的执行。",
+    tags: ["MCP", "Spring Boot 3", "PostgreSQL", "LangChain4j", "SSE"],
+    route: "agent-gateway",
+    action: "Case study",
+  },
+  {
+    index: "02",
     title: "VS Product Label Check",
     badge: "COMPANY / PRIVATE",
-    description: "主导制造业成品标签核对系统：ThinkPHP 6 后端 + Vue 3 PC 管理端 + uni-app PDA，覆盖 BYD / CHERY / GEELY 产线规则、扫码核对、任务追溯与导出闭环。",
+    description: "汽车零部件产线的成品标签核对系统，PC 管理端、后端与 PDA 三端由我独立完成。四套差异极大的客户标签规则被抽象成可配置项，现场扫码后即时判定并留档追溯。",
     tags: ["ThinkPHP 6", "Vue 3", "uni-app", "MySQL", "PDA"],
     route: "label-check",
     action: "Case study",
   },
   {
-    index: "02",
+    index: "03",
+    title: "Research Analytics Frontend",
+    badge: "COMPANY / PRIVATE",
+    description: "证券投研数据平台前端，负责 230 余个 Vue 文件。对接 50 余个金融数据源，把各页重复的表格与筛选收敛进一个自封装的高级表格组件，接口契约以运行中的 OpenAPI 为准。",
+    tags: ["Vue 3", "Element Plus", "Pinia", "Vite", "OpenAPI"],
+    route: "research-frontend",
+    action: "Case study",
+  },
+  {
+    index: "04",
     title: "Industrial ESH Inspection",
     badge: "COMPANY / PRIVATE",
-    description: "无纸化系统 ESH 巡检模块升级与维护：设备点检计划/任务/问题、隐患排查、节假日与邮件配置，以及巡检 BI 大屏状态筛选与导出联调。",
+    description: "无纸化系统里的安全巡检模块，做结构升级并在生产环境持续维护：设备点检计划与任务、隐患排查闭环、BI 大屏状态筛选，以及安全邮件的字段联调。",
     tags: ["Vue 3", "ThinkPHP 6", "MySQL", "BI Dashboard", "Element Plus"],
     route: "esh-inspection",
     action: "Case study",
   },
   {
-    index: "03",
+    index: "05",
     title: "TeamSync",
     badge: "OPEN SOURCE",
-    description: "团队协作与项目管理系统：项目看板、周期计划、站内通知 + 邮件、附件与工作台统计；参与后端模块拆分、接口实现与前端看板联调。",
+    description: "独立完成的团队协作系统，从 15 张核心表的结构设计一直做到前端页面。看板与周期计划联动，站内通知只用 WebSocket 推刷新信号，到期提醒交给定时任务发邮件。",
     tags: ["Java 21", "Spring Boot 3", "Vue 3", "PostgreSQL", "WebSocket"],
     href: "https://github.com/bestxiangest/TeamSync",
     action: "Repository",
   },
   {
-    index: "04",
+    index: "06",
     title: "Intelligent Guide Cane",
     badge: "OPEN SOURCE / AWARD",
-    description: "《聆途睿行》智慧导盲系统：端侧 ESP32-S3 + 云端 Flask/Qwen 语音中枢 + 小程序监护；获全国大学生物联网设计竞赛华东赛区一等奖。",
+    description: "《聆途睿行》智慧导盲系统。ESP32-S3 接多路传感器，云侧只承担视觉识别与语音；避障提示、蜂鸣、震动与照明留在设备端，断网时基础安全反馈照常工作。获全国大学生物联网设计竞赛华东赛区一等奖。",
     tags: ["ESP32-S3", "Flask", "Qwen", "ASR / TTS", "Mini Program"],
     href: "https://github.com/bestxiangest/Intelligent-Guide-Cane",
     action: "Repository",
   },
   {
-    index: "05",
-    title: "Campus Second-hand Platform",
-    badge: "COURSE / PRACTICE",
-    description: "校园二手交易 REST 服务：用户、商品、交易、消息与评价模块拆分；JWT 鉴权、分页筛选、上传与统一错误处理，沉淀接口设计与联调经验。",
-    tags: ["Flask", "MySQL", "SQLAlchemy", "JWT", "REST API"],
+    index: "07",
+    title: "Infusion Alarm System",
+    badge: "OPEN SOURCE",
+    description: "端到云的输液监测链路。ESP32 采集数据经 ESP-NOW 组网上行，华为云 IoTDA 负责存储，Flask 大屏与小程序做液位监测、剩余时间预测和异常报警。",
+    tags: ["ESP32", "ESP-NOW", "MQTT", "Huawei IoT", "Flask"],
+    href: "https://github.com/bestxiangest/Intelligent-infusion-alarm-system",
+    action: "Repository",
+  },
+  {
+    index: "08",
+    title: "CampusEcho",
+    badge: "REBUILT / PRACTICE",
+    description: "校园二手交易平台，从课程期的 Flask 版本重构为 Spring Boot 与 Vue 3 实现，补齐了评价、消息、举报治理与争议仲裁这条治理闭环。",
+    tags: ["Spring Boot", "Vue 3", "JWT", "REST API"],
     action: "Practice project",
   },
   {
-    index: "06",
+    index: "09",
     title: "PIXELBEAT",
     badge: "PRIVATE SOURCE / LIVE",
-    description: "自研像素风在线音乐站：歌单、搜索、私人 FM、歌词、评论、多音源播放与直链下载；Vue 3 全栈自托管于 NAS 并对外可访问。",
+    description: "自己写的像素风在线音乐站：歌单、搜索、私人 FM、歌词、评论与多音源播放。Vue 3 全栈，自托管在 NAS 上对外可访问。",
     tags: ["Vue 3", "Vite", "Pinia", "Express", "Docker / NAS"],
     href: "https://nas.lovezzn.com:13149",
     action: "Live site",
   },
   {
-    index: "07",
+    index: "10",
     title: "Qt Calendar",
     badge: "OPEN SOURCE",
-    description: "基于 Qt / C++ 的桌面日历：月历与全年视图、天气查询，以及本地 JSON 日程持久化。",
+    description: "Qt 与 C++ 写的桌面日历，含月历与全年视图、天气查询，日程用本地 JSON 持久化。",
     tags: ["C++", "Qt Widgets", "Qt Network", "JSON", "Desktop"],
     href: "https://github.com/bestxiangest/Qt-Calendar",
-    action: "Repository",
-  },
-  {
-    index: "08",
-    title: "Infusion Alarm System",
-    badge: "OPEN SOURCE",
-    description: "端到云输液监测链路：ESP32 采集与 ESP-NOW 组网、华为云 IoTDA 上云，Flask 大屏与小程序联动。",
-    tags: ["ESP32", "ESP-NOW", "MQTT", "Huawei IoT", "Flask"],
-    href: "https://github.com/bestxiangest/Intelligent-infusion-alarm-system",
     action: "Repository",
   },
 ];
 
 const certificates = [
-  { src: "./assets/certificates/bluebridge-national-2025.webp", title: "蓝桥杯全国总决赛三等奖", meta: "国家级 · Python B 组 · 2025", group: "competition", featured: true },
-  { src: "./assets/certificates/iot-east-2025.webp", title: "全国大学生物联网设计竞赛一等奖", meta: "华东赛区 · 2025", group: "competition", featured: true },
-  { src: "./assets/certificates/bluebridge-jiangxi-2025.webp", title: "蓝桥杯江西赛区一等奖", meta: "省级 · Python B 组 · 2025", group: "competition", featured: true },
-  { src: "./assets/certificates/computer-design-2024.webp", title: "中国大学生计算机设计大赛一等奖", meta: "江西省 · 2024", group: "competition", featured: true },
-  { src: "./assets/certificates/computer-design-2025.webp", title: "中国大学生计算机设计大赛三等奖", meta: "江西省 · 2025", group: "competition" },
-  { src: "./assets/certificates/ican-2024.webp", title: "iCAN 大学生创新创业大赛二等奖", meta: "江西赛区 · 2024", group: "competition" },
-  { src: "./assets/certificates/ican-2025.webp", title: "iCAN 大学生创新创业大赛三等奖", meta: "江西赛区 · 2025", group: "competition" },
-  { src: "./assets/certificates/acm-campus-2023.webp", title: "ACM“双基”程序设计竞赛三等奖", meta: "校级 · 2023", group: "competition" },
-  { src: "./assets/certificates/iot-campus.webp", title: "“双基”物联网比赛一等奖", meta: "校级", group: "competition" },
+  { src: "./assets/certificates/bluebridge-national-2025.webp", title: "蓝桥杯全国总决赛三等奖", meta: "国家级　Python B 组　2025", group: "competition", level: "national", featured: true },
+  { src: "./assets/certificates/iot-east-2025.webp", title: "全国大学生物联网设计竞赛一等奖", meta: "华东赛区　2025", group: "competition", level: "provincial", featured: true },
+  { src: "./assets/certificates/bluebridge-jiangxi-2025.webp", title: "蓝桥杯江西赛区一等奖", meta: "省级　Python B 组　2025", group: "competition", level: "provincial", featured: true },
+  { src: "./assets/certificates/raicom-2026.webp", title: "睿抗机器人开发者大赛一等奖", meta: "江西省　2026", group: "competition", level: "provincial", featured: true },
+  { src: "./assets/certificates/computer-design-2024.webp", title: "中国大学生计算机设计大赛一等奖", meta: "江西省　2024", group: "competition", level: "provincial" },
+  { src: "./assets/certificates/ican-2024.webp", title: "iCAN 大学生创新创业大赛二等奖", meta: "江西赛区　2024", group: "competition", level: "provincial" },
+  { src: "./assets/certificates/computer-design-2025.webp", title: "中国大学生计算机设计大赛三等奖", meta: "江西省　2025", group: "competition", level: "provincial" },
+  { src: "./assets/certificates/ican-2025.webp", title: "iCAN 大学生创新创业大赛三等奖", meta: "江西赛区　2025", group: "competition", level: "provincial" },
+  { src: "./assets/certificates/iot-campus.webp", title: "“双基”物联网比赛一等奖", meta: "校级", group: "competition", level: "campus" },
+  { src: "./assets/certificates/acm-campus-2023.webp", title: "ACM“双基”程序设计竞赛三等奖", meta: "校级　2023", group: "competition", level: "campus" },
   { src: "./assets/certificates/scholarship-2024.webp", title: "一等奖学金", meta: "2023—2024 学年", group: "honor" },
   { src: "./assets/certificates/scholarship-2025.webp", title: "一等奖学金", meta: "2024—2025 学年", group: "honor" },
   { src: "./assets/certificates/merit-student-2024.webp", title: "三好学生", meta: "2023—2024 学年", group: "honor" },
@@ -127,8 +150,10 @@ const pageMeta = {
   works: { title: "// works", icon: "↗", documentTitle: "Works" },
   stack: { title: "// stack", icon: "⚙", documentTitle: "Stack" },
   contact: { title: "// contact", icon: "+", documentTitle: "Contact" },
-  "label-check": { title: "// label check", icon: "01", documentTitle: "Label Check Case Study" },
-  "esh-inspection": { title: "// ESH inspection", icon: "02", documentTitle: "ESH Inspection Case Study" },
+  "agent-gateway": { title: "// agent gateway", icon: "01", documentTitle: "Agent Gateway Case Study" },
+  "label-check": { title: "// label check", icon: "02", documentTitle: "Label Check Case Study" },
+  "research-frontend": { title: "// research frontend", icon: "03", documentTitle: "Research Frontend Case Study" },
+  "esh-inspection": { title: "// ESH inspection", icon: "04", documentTitle: "ESH Inspection Case Study" },
 };
 
 const main = document.querySelector("#main");
@@ -177,17 +202,19 @@ function helloPage() {
           <div class="reveal" style="--order:0">
             <p>
               我是 <a href="#/about/" data-route="about">${profile.realName}</a>，
-              网上多用 ${profile.name}。${profile.university}${profile.major}，${profile.grade}，专业排名前 6.7%。
-              做事偏软件一侧：业务系统、全栈与 Java 后端写得最多，AIoT 与嵌入式也碰，用来把端到云串起来。
+              网上多用 ${profile.name}。${profile.university}${profile.major} ${profile.grade}，
+              专业排名 ${profile.rank}。重心在软件这一侧，业务系统、Java 后端与 Vue 前端写得最多；
+              嵌入式和 AIoT 也动手，主要用来把设备端接到云上。
             </p>
             <p>
-              ${profile.internPeriod} 在${profile.company}做过一年${profile.role}，
-              现场交付多过纸上方案。上手一件事先问清边界，再落到表结构、接口和联调；
-              工具会用 AI 加快起草，但状态、权限和上线结果仍自己过一遍。
+              ${profile.internPeriod} 在${profile.company}做${profile.role}，交的都是要在现场跑起来的东西：
+              成品标签核对系统的三端由我独立完成，设备管理平台的 Agent 能力网关也是我一个人写的。
+              习惯先把边界问清楚，再落到表结构、接口和联调；AI 用来加快起草，
+              但权限、状态流转和上线结果都自己过一遍。
             </p>
             <p>
-              项目与经历见 <a href="#/works/" data-route="works">作品</a>
-              与 <a href="#/experience/" data-route="experience">实习</a>；
+              项目与实习见 <a href="#/works/" data-route="works">作品</a>
+              和 <a href="#/experience/" data-route="experience">实习</a>，
               成绩、竞赛与知识产权在 <a href="#/achievements/" data-route="achievements">成果</a>。
             </p>
           </div>
@@ -216,38 +243,42 @@ function aboutPage() {
         <div class="two-col">
           <div class="reveal" style="--order:0">
             <p>
-              我是${profile.realName}，代码世界里多用 ${profile.name}。${profile.university}${profile.major}${profile.grade}，
-              GPA ${profile.gpa}，专业排名 ${profile.rank}，${profile.party}。
-              求职与成长方向：软件开发、全栈工程、Java 后端与 AI 应用；硬件与 AIoT 能从端侧联到云。
+              我是${profile.realName}，代码里多用 ${profile.name}。${profile.university}${profile.major} ${profile.grade}，
+              平均学分绩点 ${profile.gpa}，专业排名 ${profile.rank}，班级排名 ${profile.classRank}，${profile.party}。
+              方向是软件开发与全栈工程，落点在 Java 后端和 AI 应用，硬件那侧能把设备接到云上。
             </p>
             <p>
-              企业侧做过制造业标签核对系统的全栈交付，也维护过巡检业务的生产问题；
-              课程与开源侧用 Spring Boot、Vue、Flask 把权限、状态流转与接口工程化做扎实。
-              高频栈：<strong>Java / Spring Boot</strong>、Vue 3 / TypeScript、uni-app、ThinkPHP、Flask，以及 ESP32 / STM32。
+              企业侧交付过三件事：汽车零部件产线的成品标签核对系统，PC 管理端、后端与 PDA 三端由我独立完成；
+              设备资产管理平台的 Agent 能力网关，把业务能力按 MCP 协议开给智能体调用，写操作必须过人工确认闸门；
+              还有安全巡检模块的结构升级与生产维护。另有一段证券投研平台的前端工作，负责 230 余个 Vue 文件、
+              对接 50 余个金融数据源。
             </p>
             <p>
-              学业与开发之外，担任班级团支部书记、通信电子创新基地负责人（组织软硬件培训与竞赛推进），
-              并参与带班党员与党支部工作。竞赛、科研与荣誉详见
+              开源侧的 TeamSync 从 15 张核心表的设计到前端页面全部由我自己写。
+              常用的栈是 <strong>Java / Spring Boot</strong>、Vue 3 / TypeScript、uni-app、ThinkPHP 与 Flask，
+              嵌入式用 ESP32 与 STM32。校内担任班级团支部书记与通信电子创新基地负责人，
+              也在学院创新创业学生党支部做组织委员。竞赛、专利与荣誉详见
               <a href="#/achievements/" data-route="achievements">成果页</a>。
             </p>
           </div>
           <div class="about-skills reveal" style="--order:1">
-            <h2 class="section-heading">Skillset Breakdown</h2>
+            <h2 class="section-heading">Focus Distribution</h2>
             <div class="focus-bars">
-              <div class="focus-bar" style="--bar-width:92%"><b>Full-stack Engineering</b><strong>92.0%</strong></div>
-              <div class="focus-bar" style="--bar-width:90%"><b>Java / Spring Boot</b><strong>90.0%</strong></div>
-              <div class="focus-bar" style="--bar-width:88%"><b>Vue / TypeScript</b><strong>88.0%</strong></div>
-              <div class="focus-bar" style="--bar-width:86%"><b>Industrial Applications</b><strong>86.0%</strong></div>
-              <div class="focus-bar" style="--bar-width:84%"><b>Embedded / AIoT</b><strong>84.0%</strong></div>
-              <div class="focus-bar" style="--bar-width:82%"><b>AI Agent Workflow</b><strong>82.0%</strong></div>
+              <div class="focus-bar" style="--bar-width:94%"><b>业务系统全栈交付</b><strong>94%</strong></div>
+              <div class="focus-bar" style="--bar-width:90%"><b>Java / Spring Boot</b><strong>90%</strong></div>
+              <div class="focus-bar" style="--bar-width:88%"><b>Vue 3 / TypeScript</b><strong>88%</strong></div>
+              <div class="focus-bar" style="--bar-width:82%"><b>AI Agent 与 MCP</b><strong>82%</strong></div>
+              <div class="focus-bar" style="--bar-width:78%"><b>工业现场与多端联调</b><strong>78%</strong></div>
+              <div class="focus-bar" style="--bar-width:70%"><b>嵌入式与 AIoT</b><strong>70%</strong></div>
             </div>
+            <p class="record-note">按近一年的实际投入自评，不是能力评分。</p>
           </div>
         </div>
         <div class="identity-row reveal" style="--order:2">
-          <div><span>School</span><strong>华东交通大学</strong></div>
-          <div><span>Major</span><strong>物联网工程 · ${profile.grade}</strong></div>
-          <div><span>GPA / Rank</span><strong>${profile.gpa} · ${profile.rank}</strong></div>
-          <div><span>Target</span><strong>软件 / 全栈 / Java</strong></div>
+          <div><span>School</span><strong>${profile.university}</strong></div>
+          <div><span>Major</span><strong>${profile.major}　${profile.grade}</strong></div>
+          <div><span>GPA</span><strong>${profile.gpa}</strong></div>
+          <div><span>Rank</span><strong>${profile.rank}　${profile.rankPercent}</strong></div>
         </div>
       </div>
     </section>
@@ -258,6 +289,9 @@ function achievementsPage() {
   const featured = certificates.filter((item) => item.featured);
   const competitionCertificates = certificates.filter((item) => item.group === "competition");
   const honorCertificates = certificates.filter((item) => item.group === "honor");
+  const countByLevel = (level) =>
+    String(competitionCertificates.filter((item) => item.level === level).length).padStart(2, "0");
+  const pad = (value) => String(value).padStart(2, "0");
   const certificateCard = (item, index, featuredCard = false) => `
     <button class="certificate-card${featuredCard ? " certificate-card--featured" : ""}" type="button"
       data-certificate data-src="${item.src}" data-title="${item.title}" data-meta="${item.meta}"
@@ -274,12 +308,12 @@ function achievementsPage() {
         <div class="achievement-hero reveal" style="--order:0">
           <div>
             <span class="eyebrow">ACADEMIC RECORD / RESEARCH / HONORS</span>
-            <h2>成绩有据可查，<br /><span>想法落地成物。</span></h2>
+            <h2>成绩可以核验，<br /><span>项目都还在跑。</span></h2>
           </div>
           <div class="academic-scoreboard" aria-label="学业数据">
-            <div><strong>${profile.gpa}</strong><span>GPA</span></div>
-            <div><strong>${profile.rank}</strong><span>专业排名 · 前 6.7%</span></div>
-            <div><strong>${profile.cet4}</strong><span>CET-4</span></div>
+            <div><strong>${profile.gpaShort}</strong><span>平均学分绩点　满分 5.00</span></div>
+            <div><strong>${profile.rank}</strong><span>专业排名　${profile.rankPercent}</span></div>
+            <div><strong>${profile.cet4}</strong><span>CET-4　六级${profile.cet6}</span></div>
           </div>
         </div>
 
@@ -287,11 +321,11 @@ function achievementsPage() {
           <div class="award-showcase__intro">
             <span class="record-no">01 / SELECTED AWARDS</span>
             <h3 id="award-showcase-title">重点奖项</h3>
-            <p>程序设计、业务系统与 AIoT 链路——先把工程跑通，再上赛场与生产现场检验。</p>
+            <p>从算法题到业务系统再到 AIoT 链路，先把工程跑通，再拿去赛场和生产现场检验。</p>
             <div class="award-counts">
-              <div><strong>01</strong><span>国家级</span></div>
-              <div><strong>06</strong><span>省区级</span></div>
-              <div><strong>02</strong><span>校级</span></div>
+              <div><strong>${countByLevel("national")}</strong><span>国家级</span></div>
+              <div><strong>${countByLevel("provincial")}</strong><span>省区级</span></div>
+              <div><strong>${countByLevel("campus")}</strong><span>校级</span></div>
             </div>
           </div>
           <div class="featured-certificates">
@@ -304,37 +338,37 @@ function achievementsPage() {
             <span class="record-no">02 / RESEARCH OUTPUTS</span>
             <h3>科研与知识产权</h3>
             <div class="record-item">
-              <span class="record-state">第一发明人 · 已公布 · 尚未授权</span>
+              <span class="record-state">第一发明人　已公开　实质审查中</span>
               <h4>一种基于多源信息感知的智慧校园电子班牌系统及方法</h4>
-              <p>发明专利申请 · 申请号 202511818264.2 · 公布号 CN 121747168 A · 2025.12 申请 / 2026.03 公布</p>
+              <p>发明专利申请　申请号 202511818264.2　公布号 CN 121747168 A　终端采集人脸、表情、环境与宿舍用电数据，服务器分析后触发安全联动。</p>
             </div>
             <div class="record-item">
-              <span class="record-state">核心开发 · 已登记</span>
+              <span class="record-state">核心开发　已登记</span>
               <h4>基于深度学习的智能驾驶路况障碍预警系统 V1.0</h4>
-              <p>计算机软件著作权 · 2025SR1151542 · 2025</p>
+              <p>计算机软件著作权　登记号 2025SR1151542　负责图像采集、障碍识别、风险预警与结果展示。</p>
             </div>
           </article>
           <article class="record-card reveal" style="--order:3">
             <span class="record-no">03 / CAMPUS HONORS</span>
-            <h3>连续两学年的认可</h3>
+            <h3>连续两学年拿到的</h3>
             <div class="honor-strip"><strong>一等奖学金</strong><span>2023—2025</span></div>
             <div class="honor-strip"><strong>三好学生</strong><span>2023—2025</span></div>
             <div class="honor-strip"><strong>科技活动奖</strong><span>2023—2025</span></div>
-            <p class="record-note">三类荣誉均连续两学年获得。</p>
+            <p class="record-note">三项都是连续两个学年获得，证书扫描件在下方档案里。</p>
           </article>
         </div>
 
         <section class="certificate-archive reveal" style="--order:4">
           <div class="certificate-archive__head">
             <div><span class="record-no">04 / CERTIFICATE ARCHIVE</span><h3>证书档案</h3></div>
-            <p>共 15 份材料。点击任一证书可放大查看。</p>
+            <p>共 ${certificates.length} 份材料，点击任一证书可放大查看。</p>
           </div>
           <div class="certificate-group">
-            <div class="certificate-group__label"><b>09</b><span>学科竞赛<br />Competitions</span></div>
+            <div class="certificate-group__label"><b>${pad(competitionCertificates.length)}</b><span>学科竞赛<br />Competitions</span></div>
             <div class="certificate-wall">${competitionCertificates.map((item, index) => certificateCard(item, index)).join("")}</div>
           </div>
           <div class="certificate-group">
-            <div class="certificate-group__label"><b>06</b><span>奖学金与荣誉<br />Honors</span></div>
+            <div class="certificate-group__label"><b>${pad(honorCertificates.length)}</b><span>奖学金与荣誉<br />Honors</span></div>
             <div class="certificate-wall">${honorCertificates.map((item, index) => certificateCard(item, index)).join("")}</div>
           </div>
         </section>
@@ -342,10 +376,10 @@ function achievementsPage() {
         <article class="leadership-band reveal" style="--order:5">
           <div><span class="record-no">05 / LEADERSHIP</span><h3>组织与实践</h3></div>
           <ul class="leadership-list">
-            <li><b>团支部书记</b><span>物联网工程 2023-1 班</span></li>
-            <li><b>通信电子创新基地负责人</b><span>2024.09 — 至今 · 软硬件培训与竞赛推进；协助基地获国家级 2 项、省级 7 余项</span></li>
-            <li><b>带班党员</b><span>计算机（ICT）2025-1 班 · 2025 级</span></li>
-            <li><b>组织委员</b><span>学院创新创业学生党支部</span></li>
+            <li><b>团支部书记</b><span>物联网工程 2023-1 班　2023.09 至今，组织主题团日与团课 12 场</span></li>
+            <li><b>通信电子创新基地负责人</b><span>2024.09 至今，组织软硬件培训并推进竞赛，协助基地获国家级 2 项、省级 7 项以上</span></li>
+            <li><b>带班党员</b><span>计算机（ICT）2025-1 班　2025 级</span></li>
+            <li><b>组织委员</b><span>学院创新创业学生党支部　2026.06 至今</span></li>
           </ul>
         </article>
       </div>
@@ -370,29 +404,51 @@ function experiencePage() {
           <div class="experience-duration">${profile.internPeriod}<br />ONE-YEAR INTERNSHIP</div>
         </div>
         <p class="reveal" style="--order:1; margin-top:28px">
-          一年${profile.role}期间，在制造业无纸化系统上主导 VS 成品标签核对系统（后端 / PC / PDA 全栈），
-          并参与 ESH 巡检模块的结构升级与持续维护（设备点检、隐患排查、BI 大屏与邮件通知）。
-          日常用 AI Agent 提效，上线前对关键路径做人工审查。
+          一年实习里同时推进了四件事，交付物都要在真实环境里跑：设备管理平台的 Agent 能力网关由我独立设计实现；
+          成品标签核对系统的 PC 管理端、后端与 PDA 三端由我独立完成；安全巡检模块做了结构升级并在生产环境持续维护；
+          TeamSync 从库表设计到前端页面全部自己写完并已开源。日常用 AI 加快起草，
+          但权限边界、状态流转和上线结果都自己复核一遍。此外还有一段证券投研平台的前端开发经历，
+          负责 230 余个 Vue 文件，要点写在<a href="#/research-frontend/" data-route="research-frontend">案例页</a>里。
         </p>
         <div class="experience-grid">
           <article class="experience-card reveal" style="--order:2">
-            <span class="work-label">01 / PRODUCT LABEL CHECK</span>
-            <h3>VS 成品标签核对系统（主导）</h3>
+            <span class="work-label">01 / AGENT GATEWAY</span>
+            <h3>Agent 能力网关（独立设计实现）</h3>
             <ul>
-              <li>独立负责 ThinkPHP 6 后端、Vue 3/TS PC 管理端、uni-app PDA 与 MySQL 数据层。</li>
-              <li>对接 BYD / CHERY / GEELY 规则：物料编码、HU/箱号、P/N、数量多维比对与累加校验。</li>
-              <li>设计规则、任务、核对记录等核心表；完成导入导出、App 鉴权、扫码校验与任务提交。</li>
-              <li>PDA 支持相机/手动/硬件扫码头与语音震动反馈；完成测试服与生产联调及部署文档。</li>
+              <li>按 MCP 协议对外暴露 9 个工具，7 个只读、2 个写，覆盖设备定位、履历追溯、备件判断与工单创建。</li>
+              <li>官方 SDK 会顶起 reactor 与 jackson 版本，改为参照客户端实现手写约 300 行 HTTP 与 SSE 传输层。</li>
+              <li>写操作设票据式人工确认闸门，票据绑定参数指纹，签发、核准与执行全程落库审计。</li>
+              <li>tools/list 按用户真实权限过滤，工具不透传租户 ID；确认面板放在设备管理宿主前端而非 AI 前端。</li>
             </ul>
           </article>
           <article class="experience-card reveal" style="--order:3">
-            <span class="work-label">02 / ESH INSPECTION</span>
-            <h3>无纸化系统 ESH 巡检（升级 + 维护）</h3>
+            <span class="work-label">02 / PRODUCT LABEL CHECK</span>
+            <h3>VS 成品标签核对系统（独立三端）</h3>
             <ul>
-              <li>参与 PC 端 ESH 路由与菜单重构：设备管理、点检计划/任务/问题、排查管理与节假日设置。</li>
-              <li>隐患列表支持安全/消防/环境多类型接口与导出，补齐隐患类型筛选与责任人检索。</li>
-              <li>后端联调巡检任务调度、问题状态流转、验收权限与安全邮件（含隐患类型字段）。</li>
-              <li>巡检 BI 大屏：未完成数据、状态筛选映射、部门导出与多端联调验证。</li>
+              <li>独立负责 ThinkPHP 6 后端、Vue 3 与 TypeScript 管理端、uni-app PDA 与 MySQL 数据层。</li>
+              <li>把四套客户标签规则抽象成可配置项，支持 Excel 批量导入并校验必填、重复与状态。</li>
+              <li>PDA 兼容相机、手动输入与硬件扫码头，支持多标签累加、重复扫码拦截与三类结果语音播报。</li>
+              <li>整理本地、内网测试与生产三套环境配置，写了环境切换与前后端构建部署脚本。</li>
+            </ul>
+          </article>
+          <article class="experience-card reveal" style="--order:4">
+            <span class="work-label">03 / ESH INSPECTION</span>
+            <h3>安全巡检模块（升级与维护）</h3>
+            <ul>
+              <li>参与 PC 端菜单与路由重构：设备台账、点检计划与任务、设备问题、日常与专项隐患排查。</li>
+              <li>隐患列表按安全、消防、环境切换接口与导出，补齐隐患类型与责任人筛选维度。</li>
+              <li>联调巡检任务调度、问题状态流转、验收权限，以及安全邮件里的隐患类型字段。</li>
+              <li>BI 大屏的未完成数据、状态筛选映射与部门维度导出，多端验证后上线。</li>
+            </ul>
+          </article>
+          <article class="experience-card reveal" style="--order:5">
+            <span class="work-label">04 / TEAMSYNC</span>
+            <h3>TeamSync 协作系统（独立全栈，已开源）</h3>
+            <ul>
+              <li>15 张核心表的结构设计，后端 172 个 Java 文件，前端页面也全部自己写。</li>
+              <li>看板支持阶段划分、任务拖拽、子任务与评论，周期计划可按期生成看板任务。</li>
+              <li>站内通知用 WebSocket 只推刷新信号，到期与逾期提醒交给定时任务发邮件。</li>
+              <li>项目文件与任务附件接入对象存储，鉴权由 JWT 拦截器统一处理。</li>
             </ul>
           </article>
         </div>
@@ -430,7 +486,7 @@ function worksPage() {
       <div class="container">
         ${titleMarkup("works")}
         <div class="works-intro reveal" style="--order:0">
-          <p>以软件交付为主线：企业业务系统、Java/Vue 全栈、自研 Web 产品，辅以 AIoT 竞赛与嵌入式开源。企业项目另设案例页，只写职责与实现要点，不公开内部代码与数据。</p>
+          <p>主线是软件交付：企业业务系统、Java 与 Vue 全栈、自研 Web 产品，另有 AIoT 竞赛与嵌入式开源作为补充。四个企业项目另设案例页，只写职责与实现要点，不公开内部代码与业务数据。</p>
           <a class="button-link" href="${profile.githubUrl}?tab=repositories" target="_blank" rel="noreferrer">Public repositories <span>↗</span></a>
         </div>
         <div class="project-grid">${projects.map(projectMarkup).join("")}</div>
@@ -439,48 +495,127 @@ function worksPage() {
   `;
 }
 
-function caseStudyPage(kind) {
-  const isEsh = kind === "esh-inspection";
-  const data = isEsh ? {
-    route: "esh-inspection",
-    eyebrow: "COMPANY PROJECT / INDUSTRIAL ESH",
-    title: "无纸化系统 ESH 巡检模块",
-    role: "模块升级与持续维护",
-    context: "青岛华睿源科技有限公司 · 软件开发实习",
-    summary: "ESH（Environment / Safety / Health）巡检是无纸化系统中的安全业务域：覆盖设备台账、点检计划与任务、设备问题闭环、隐患排查，以及 BI 大屏与邮件通知。本人参与模块结构升级，并在生产环境持续维护。",
-    facts: [["业务域", "设备点检 + 隐患排查"], ["终端", "PC 管理端 / BI"], ["栈", "Vue 3 + ThinkPHP 6"]],
+const CASE_STUDIES = {
+  "agent-gateway": {
+    route: "agent-gateway",
+    eyebrow: "COMPANY PROJECT / AGENT ENGINEERING",
+    title: "设备管理平台 Agent 能力网关",
+    role: "独立设计并实现",
+    context: "青岛华睿源科技有限公司　工业设备资产管理平台",
+    summary: "设备资产管理的日常使用集中在跨模块查询：一台设备现在什么状态，上次大修换了哪些件，同类故障以前怎么处理，备件还剩多少。这些信息分散在台账、工单、点检、库存与故障树里，本模块把它们按 MCP 协议开放给智能体调用，让跨模块的查询与派工收敛为一次对话。",
+    facts: [["工具", "7 只读 + 2 写"], ["协议", "MCP over HTTP / SSE"], ["产出", "38 个 Java 文件　17 个测试类"]],
     sections: [
       ["我负责的部分", [
-        "参与 PC 端 ESH 菜单与路由升级：设备管理（基础设备 / 点检计划 / 节假日 / 点检任务 / 设备问题）、排查管理（日常/专项隐患）。",
-        "隐患列表按安全 / 消防 / 环境切换接口与导出，补齐隐患类型、责任人等筛选维度。",
-        "后端侧联调巡检任务调度（InsTask）、问题模型状态流转、验收权限与安全邮件（邮件正文纳入隐患类型）。",
-        "巡检 BI 大屏：未完成隐患列表、状态筛选映射、部门维度导出与接口联调。",
+        "独立完成协议层、工具层、票据闸门与前端确认面板的设计与实现，落在一个已有 262 个 Controller 的多租户 Spring Boot 应用上。",
+        "9 个工具按设备运维链路组织：设备台账与单台档案、维修与保养履历、点检巡检记录、备件库存与 BOM、设备报警关联、故障树检索，加上备件预占与维修工单创建两个写工具。",
+        "为让只读工具拿到准确数据，改了设备管理核心模块的三处查询逻辑。工单查询原来用 LIKE 模糊匹配，设备编号 DEV-001 会命中 13 条工单，模型会把别的设备的故障讲成这一台的，于是补上精确匹配路径。",
+        "tools/list 按当前用户的真实权限过滤，只把能调的工具告诉模型；工具绝不透传租户 ID，以防越租户查询。",
+        "工具描述里不能出现尚未注册的工具名。早期有一处描述写了“请改用 device_detail”，而该工具当时并未实现，模型照此调用导致整条推理链中途终止。",
+        "确认面板做在设备管理宿主前端而不是 AI 前端，因为令牌与动作都属于设备管理侧；倒计时用服务端返回的剩余秒数加本地计时，轮询只在面板真正可见时运行。",
       ]],
-      ["业务怎么跑", [
-        "管理端维护消防 / 环境等设备台账与点检计划，可配置节假日规则。",
-        "系统按计划生成点检任务；现场执行后回写结果，异常进入设备问题闭环。",
-        "隐患排查支持登记、处理、验收；大屏按状态聚合展示，邮件用于安全通知触达。",
+      ["为什么没用官方 SDK", [
+        "MCP 官方 SDK 2.0.1 会把 reactor-core 顶到 3.7.0、jackson 顶到 2.21，而应用由 Spring Boot 3.2.10 统一管理 reactor 3.6.x 与 jackson 2.15.x。",
+        "在这么大的成熟应用里覆盖全进程依赖，风险与收益不成比例，于是对照 LangChain4j 的客户端实现手写了约 300 行 HTTP 与 SSE 传输层。",
+        "GET 建立 SSE 后首帧必须下发 event: endpoint 告知消息通道地址，所有 JSON-RPC 响应统一由 event: message 推送，POST 只返回 202。",
+        "协议错误走 JSON-RPC error，工具错误走 result.isError。前者在 LangChain4j 侧会抛异常并终止整轮推理，而“当前用户无此权限”这类信息应该让模型看到并自行改正。",
+        "协议层与工具层刻意分置两个包，日后换回官方 SDK 只需要替换协议层。",
       ]],
-      ["技术与难点", [
-        "在既有 ThinkPHP 6 + Vue 3 工业系统上做结构升级，需兼容历史权限、旧 URL 重定向与多类型隐患接口。",
-        "大屏状态枚举与业务库 status 不完全一一对应，筛选与导出逻辑要单独映射。",
-        "改动面向生产：任务完成态、验收权限与邮件内容以后端真实数据为准，避免前端伪造。",
+      ["写操作怎么守住", [
+        "模型首次调用不带确认令牌时网关并不执行，只签发一张 PENDING 票据，把将要执行的动作与票据编号作为正常结果返回；人工核准后模型以相同参数附令牌再调一次才真正执行。",
+        "安全性不依赖票据编号的保密，它本身就明文回给了模型。真正起作用的是 PENDING 到 APPROVED 这次迁移只存在于人工确认端点上，而模型能触达的通道只有 tools/call，闸门守的是通道差异。",
+        "票据绑定参数指纹，人工同意的是那一组具体参数而不是那个工具，避免一张“领用 1 个轴承”的批准被拿去执行“领用 1000 个”。",
+        "可逆写票据有效期 10 分钟，不可逆写缩短到 3 分钟且确认时必须显式勾选，票据的签发、核准与执行全部落库审计。",
       ]],
     ],
-  } : {
+  },
+  "label-check": {
     route: "label-check",
     eyebrow: "COMPANY PROJECT / FULL-STACK DELIVERY",
     title: "VS 成品标签核对系统",
-    role: "主导全栈交付",
-    context: "青岛华睿源科技有限公司 · 生产现场",
-    summary: "面向汽车零部件产线的标签质量核对系统：规则配置、扫码核对、任务提交、记录追溯与导出闭环，覆盖 BYD / CHERY / GEELY 三条客户规则。",
-    facts: [["客户规则", "BYD / CHERY / GEELY"], ["端侧", "PC 管理端 + PDA"], ["数据", "6 张核心业务表"]],
+    role: "独立完成三端",
+    context: "青岛华睿源科技有限公司　汽车零部件生产现场",
+    summary: "成品出货前要核对客户系统标签与厂内自制标签是否对应，物料编码、箱号与数量三者都不能错，此前靠人工逐张比对，一次错漏的代价直接落在出货批次上。系统把这道工序搬到 PDA：现场先扫客户标签再扫自制标签，后端按规则判定，结果实时播报并留档。",
+    facts: [["客户规则", "四套，可配置"], ["端侧", "PC 管理端 + PDA"], ["栈", "ThinkPHP 6 + Vue 3 + uni-app"]],
     sections: [
-      ["我负责的部分", ["独立负责 ThinkPHP 6 后端、Vue 3/TS PC 管理端、uni-app Vue 3 PDA 与 MySQL。", "设计规则、GEELY 箱号池、导入批次、任务、核对记录与系统标签明细等表结构。", "完成规则 CRUD、Excel/PDF 导入、记录详情/导出、App 鉴权、扫码校验与任务提交。", "PDA 支持相机扫码 / 手动输入 / 硬件扫码头，以及语音震动反馈与未完成任务恢复。"]],
-      ["业务怎么跑", ["管理端维护客户标签解析规则与导入数据。", "PDA 初始化任务后依次扫描系统标签与自制标签。", "多维比对物料编码、HU/箱号、P/N 与数量；支持累加、重复拦截与数量错误二次确认。", "提交后以后端返回为完成态，记录可追溯、可导出。"]],
-      ["技术与难点", ["配置驱动解析，兼容多客户二维码格式与多系统标签场景。", "GEELY PDF 箱号池导入、扫码核销与任务取消回退需保证状态一致。", "产线要求反馈即时、恢复可靠；AI 辅助开发后仍对权限边界与数据一致性做人工验收。"]],
+      ["我负责的部分", [
+        "独立负责 ThinkPHP 6 后端、Vue 3 与 TypeScript 管理端、uni-app PDA 与 MySQL 数据层。",
+        "设计规则、箱号池、导入批次、核对任务、核对记录与标签明细等表结构，核对结果与明细分三层持久化。",
+        "完成规则增删改停用、Excel 与 PDF 导入、记录详情与导出、App 端鉴权、扫码校验与任务提交。",
+        "整理本地、内网测试与生产三套环境的接口与数据库配置，写了环境切换与前后端构建部署脚本，构建产物附带清单与备份。",
+      ]],
+      ["四套规则怎么不写成四套代码", [
+        "四家整车厂客户的标签体系互不相同：两家按料号直接对照自制编码；一家的箱号要先由 PDF 导入形成独立箱号池，再按 HU 反查核销；还有一套 KD 模式要逐项比对两张键值型二维码里的四个指定字段。",
+        "若按客户分别实现，每新增一家都要改动核心流程，于是把差异归纳为字段来源、匹配方式与核销策略三个维度，抽象成可配置规则。",
+        "管理端按客户分页维护规则，支持 Excel 模板批量导入，导入时校验必填项、重复项、无效状态与客户类型。",
+        "带箱号池的那家单独提供池管理，导入后可按核销状态、规则挂接与导入批次查询统计。",
+      ]],
+      ["现场输入条件与误操作", [
+        "产线的输入条件并不理想，PDA 端同时兼容相机扫码、手动输入与硬件扫码头三种方式。",
+        "一个产品对应多张客户标签时支持多标签累加后再比对数量；同一任务内重复扫同一张标签会被拦截并提示。",
+        "核对结果按正确、物料不匹配、数量不匹配三类分别语音播报，数量不匹配时允许操作员改数量后二次确认，避免一次误扫作废整个任务。",
+        "记录详情保留每次扫码的客户标签原文、自制标签原文与判定结果，可按时间、人员、物料与箱号筛选导出。",
+      ]],
     ],
-  };
+  },
+  "research-frontend": {
+    route: "research-frontend",
+    eyebrow: "COMPANY PROJECT / DATA-HEAVY FRONTEND",
+    title: "证券投研数据平台前端",
+    role: "前端开发",
+    context: "山东远端网络科技股份有限公司　证券投研数据服务",
+    summary: "面向证券投研的数据服务平台前端，涉及 230 余个 Vue 文件。基础数据模块工作量最大，对接 50 余个金融数据源，每个数据源对应一个列表页和部分详情页，重复的表格与筛选被收敛进一个自封装的通用组件。",
+    facts: [["规模", "230+ 个 Vue 文件"], ["数据源", "50+ 个"], ["栈", "Vue 3 + Element Plus + Pinia"]],
+    sections: [
+      ["我负责的部分", [
+        "基础数据、题材、典型题材、行业、涨价概念、自选、趋势、主板打板、科创打板、业绩与天气等模块的前端开发。",
+        "对接的数据源包括复权因子、涨跌停与集合竞价表现、龙虎榜、券商研报、新闻快讯、互动易、融资融券汇总与明细、个股与行业资金流向、业绩快报、股权质押、央行货币政策报告、政策法规、沪深港股通持股、板块指数行情与可转债合约信息。",
+        "可转债做了独立的合约信息列表与详情页，详情按字段分组卡片展示，数据经 sessionStorage 缓存，缺失时按债券代码回查列表接口。",
+        "另做了侧边栏拖拽调宽并把宽度写入 Cookie、品牌由图片改文字与控件视觉打磨，并修掉一处叶子菜单误配 Layout 导致侧栏闪现嵌套的问题。",
+      ]],
+      ["把重复收敛成一个组件", [
+        "50 余个数据源意味着 50 余个结构相似的列表页，逐页实现会让密度切换、全屏、列显隐、分页这些行为各写一遍，改一次要改五十处。",
+        "自封装的高级表格组件统一处理密度、全屏、列显隐、斑马纹、表头背景、高度计算与内置分页。",
+        "筛选区统一用固定定位结构把搜索表单和工具栏排到同一行，避免每个页面重复实现布局。",
+      ]],
+      ["接口协作上的规矩", [
+        "请求参数统一驼峰命名，日期统一转成 YYYYMMDD 提交，接口契约以运行中的 OpenAPI 为准，不维护本地快照。",
+        "不用 Mock 数据伪造功能完成，功能以真实接口跑通为准。",
+        "遇到查询慢、字段缺失或语义不一致，先确认根因在前端还是后端，再提最小后端修改需求，而不是在前端打补丁掩盖。",
+        "为此写过题材、行业、涨价概念、自选、趋势、打板与天气等多个模块的后端接口重构建议文档。",
+      ]],
+    ],
+  },
+  "esh-inspection": {
+    route: "esh-inspection",
+    eyebrow: "COMPANY PROJECT / INDUSTRIAL ESH",
+    title: "无纸化系统 ESH 巡检模块",
+    role: "结构升级与持续维护",
+    context: "青岛华睿源科技有限公司　制造业无纸化系统",
+    summary: "ESH 巡检是无纸化系统里的安全业务域，覆盖设备台账、点检计划与任务、设备问题闭环、隐患排查，以及 BI 大屏与邮件通知。本人参与模块的结构升级，并在生产环境持续维护。",
+    facts: [["业务域", "设备点检 + 隐患排查"], ["终端", "PC 管理端 + BI 大屏"], ["栈", "Vue 3 + ThinkPHP 6"]],
+    sections: [
+      ["我负责的部分", [
+        "参与 PC 端菜单与路由升级：设备管理下的基础设备、点检计划、节假日设置、点检任务与设备问题，以及排查管理下的日常与专项隐患。",
+        "隐患列表按安全、消防、环境切换接口与导出，补齐隐患类型与责任人等筛选维度。",
+        "后端侧联调巡检任务调度、问题模型状态流转、验收权限，以及安全邮件正文纳入隐患类型字段。",
+        "巡检 BI 大屏的未完成隐患列表、状态筛选映射与部门维度导出。",
+      ]],
+      ["业务怎么跑", [
+        "管理端维护消防与环境等设备台账和点检计划，可配置节假日规则。",
+        "系统按计划生成点检任务，现场执行后回写结果，异常进入设备问题闭环。",
+        "隐患排查支持登记、处理与验收，大屏按状态聚合展示，邮件用于安全通知触达。",
+      ]],
+      ["改动面向生产的约束", [
+        "在既有 ThinkPHP 6 与 Vue 3 工业系统上做结构升级，要兼容历史权限、旧 URL 重定向与多类型隐患接口。",
+        "大屏的状态枚举与业务库 status 不完全一一对应，筛选与导出需要单独做映射。",
+        "任务完成态、验收权限与邮件内容一律以后端真实数据为准，不在前端伪造。",
+      ]],
+    ],
+  },
+};
+
+function caseStudyPage(kind) {
+  const data = CASE_STUDIES[kind];
 
   return `
     <section class="page page--case-study" data-page="${data.route}">
@@ -509,8 +644,8 @@ function caseStudyPage(kind) {
               <ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>
             </article>`).join("")}
         </div>
-        <div class="case-footer reveal" style="--order:6">
-          <p>本项目为公司内部系统。本页仅说明本人参与的工作范围与实现要点，不展示源代码、客户数据或内部界面。</p>
+        <div class="case-footer reveal" style="--order:${data.sections.length + 3}">
+          <p>本项目为公司内部系统。本页只说明本人参与的工作范围与实现要点，不展示源代码、库表结构、客户数据或内部界面。</p>
           <a class="button-link" href="mailto:${profile.email}">联系了解更多 <span>↗</span></a>
         </div>
       </div>
@@ -522,25 +657,25 @@ function stackPage() {
     <section class="page page--stack" data-page="stack">
       <div class="container">
         ${titleMarkup("stack")}
-        <p class="reveal" style="--order:0">以下技术均在真实项目中使用过，熟练度因场景而异。按软件交付优先排序，硬件与 AIoT 作为可落地补充。</p>
+        <p class="reveal" style="--order:0">下面的技术都在真实项目里用过，熟练度按场景差别不小。排序按软件交付的权重来，硬件与 AIoT 放在后面，用途是把设备接上云。</p>
         <hr class="page-rule" />
         <div class="stack-grid">
           <article class="stack-group reveal" style="--order:1"><span>01</span><h2>Languages</h2><ul class="stack-list"><li>Java</li><li>Python</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>C / C++</li><li>SQL</li></ul></article>
           <article class="stack-group reveal" style="--order:2"><span>02</span><h2>Backend &amp; Data</h2><ul class="stack-list"><li>Spring Boot 3</li><li>MyBatis-Plus</li><li>ThinkPHP 6</li><li>Flask</li><li>Express</li><li>MySQL</li><li>PostgreSQL</li><li>Redis</li><li>JWT / Token</li><li>REST API</li><li>WebSocket</li></ul></article>
           <article class="stack-group reveal" style="--order:3"><span>03</span><h2>Web &amp; App</h2><ul class="stack-list"><li>Vue 3</li><li>Vite</li><li>TypeScript</li><li>Element Plus</li><li>Pinia</li><li>uni-app</li><li>微信小程序</li><li>ECharts</li><li>Qt Widgets</li><li>Android Java</li></ul></article>
-          <article class="stack-group reveal" style="--order:4"><span>04</span><h2>AI Engineering</h2><ul class="stack-list"><li>Claude Code / Codex</li><li>OpenCode</li><li>Qwen Intent</li><li>Tool Calling</li><li>百度 ASR / TTS</li><li>OpenAI-compatible API</li><li>OpenCV</li></ul></article>
+          <article class="stack-group reveal" style="--order:4"><span>04</span><h2>AI Engineering</h2><ul class="stack-list"><li>MCP</li><li>LangChain4j</li><li>Tool Calling</li><li>Claude Code / Codex</li><li>OpenCode</li><li>Qwen Intent</li><li>百度 ASR / TTS</li><li>OpenAI-compatible API</li><li>OpenCV</li></ul></article>
           <article class="stack-group reveal" style="--order:5"><span>05</span><h2>AIoT &amp; Hardware</h2><ul class="stack-list"><li>ESP32-S3</li><li>STM32</li><li>MQTT</li><li>ESP-NOW</li><li>NB-IoT</li><li>I²C / SPI / UART</li><li>PlatformIO</li><li>CubeMX / HAL</li></ul></article>
           <article class="stack-group reveal" style="--order:6"><span>06</span><h2>Build &amp; Delivery</h2><ul class="stack-list"><li>Git / GitHub</li><li>Linux</li><li>Docker</li><li>Nginx</li><li>NAS</li><li>HBuilderX</li><li>CMake</li><li>Playwright</li></ul></article>
         </div>
         <div class="evidence reveal" style="--order:7">
           <h2>这些技术用在了哪里</h2>
           <ul class="evidence-list">
-            <li><b>TeamSync</b><span>Spring Boot 3 分层接口 + Vue 看板：权限、任务流、通知与工作台统计。</span></li>
-            <li><b>标签核对</b><span>ThinkPHP 规则与任务接口，Vue 管理端配置，uni-app PDA 扫码提交。</span></li>
-            <li><b>ESH 巡检</b><span>点检计划/隐患状态流转，BI 大屏筛选导出，安全邮件字段联调。</span></li>
-            <li><b>导盲系统</b><span>ESP32-S3 端侧 + Flask 语音中枢 + 小程序监护，竞赛落地。</span></li>
-            <li><b>PIXELBEAT</b><span>Vue 3 自托管音乐站：歌单、播放与 NAS 部署。</span></li>
-            <li><b>AI 工具链</b><span>用 Agent 加速起草与改写，状态、权限与上线结果仍人工验收。</span></li>
+            <li><b>Agent 网关</b><span>手写 MCP 协议层与 9 个业务工具，写操作过票据式确认闸门并全链路审计。</span></li>
+            <li><b>TeamSync</b><span>Spring Boot 3 分层接口配 Vue 看板：权限、任务流、通知与工作台统计。</span></li>
+            <li><b>标签核对</b><span>ThinkPHP 规则与任务接口，Vue 管理端配规则，uni-app PDA 扫码提交。</span></li>
+            <li><b>投研前端</b><span>Vue 3 与 Element Plus 把 50 余个数据源的列表与筛选收进一个组件。</span></li>
+            <li><b>导盲系统</b><span>ESP32-S3 端侧闭环，配 Flask 语音中枢与小程序监护，竞赛落地。</span></li>
+            <li><b>PIXELBEAT</b><span>Vue 3 自托管音乐站：歌单、播放与 NAS 上的部署运维。</span></li>
           </ul>
         </div>
       </div>
@@ -555,13 +690,14 @@ function contactPage() {
         ${titleMarkup("contact")}
         <div class="contact-hero reveal" style="--order:0">
           <div class="contact-hero__copy">
-            <span class="eyebrow">INTERNSHIP / FULL-TIME / COLLAB</span>
-            <h2>有事可以说，<br /><span>有空会回。</span></h2>
+            <span class="eyebrow">POSTGRADUATE / COLLAB / OPPORTUNITY</span>
+            <h2>有事直接说，<br /><span>看到就回。</span></h2>
             <p>
-              正在寻找软件开发、全栈、Java 后端与 AI 应用方向的实习 / 校招机会；
-              也欢迎开源协作与项目交流。邮件写清来意即可，收到后会尽快回复。
+              正在准备 2027 年推免申请，感兴趣的方向是边缘智能、智能物联网与端云协同，
+              以及可信 AI 与智能体系统的工程化。软件开发与全栈方向的交流、开源协作也都欢迎。
+              邮件写清来意就行，看到会尽快回。
             </p>
-            <div class="availability">邮件 / GitHub 优先</div>
+            <div class="availability">邮件优先</div>
           </div>
           <aside class="contact-meta" aria-label="基本信息">
             <div class="contact-meta__brand">
@@ -573,9 +709,9 @@ function contactPage() {
             </div>
             <dl>
               <div><dt>School</dt><dd>${profile.university}</dd></div>
-              <div><dt>Major</dt><dd>${profile.major} · ${profile.grade}</dd></div>
-              <div><dt>Focus</dt><dd>Full-stack · Java · AI</dd></div>
-              <div><dt>Based in</dt><dd>Nanchang · UTC+8</dd></div>
+              <div><dt>Major</dt><dd>${profile.major}　${profile.grade}</dd></div>
+              <div><dt>Focus</dt><dd>Full-stack　Java　AI</dd></div>
+              <div><dt>Based in</dt><dd>Nanchang　UTC+8</dd></div>
             </dl>
           </aside>
         </div>
@@ -614,8 +750,10 @@ const renderers = {
   works: worksPage,
   stack: stackPage,
   contact: contactPage,
-  "esh-inspection": () => caseStudyPage("esh-inspection"),
+  "agent-gateway": () => caseStudyPage("agent-gateway"),
   "label-check": () => caseStudyPage("label-check"),
+  "research-frontend": () => caseStudyPage("research-frontend"),
+  "esh-inspection": () => caseStudyPage("esh-inspection"),
 };
 
 function rawRouteFromHash() {
