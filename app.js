@@ -72,10 +72,10 @@ const projects = [
     index: "05",
     title: "TeamSync",
     badge: "OPEN SOURCE",
-    description: "独立完成的团队协作系统，从 15 张核心表的结构设计一直做到前端页面。看板与周期计划联动，站内通知只用 WebSocket 推刷新信号，到期提醒交给定时任务发邮件。",
+    description: "独立完成的团队协作系统，从 17 张核心表的结构设计一直做到前端页面，已部署在企业内网供团队日常使用。看板与周期计划联动，站内通知只用 WebSocket 推刷新信号，到期提醒交给定时任务发邮件。",
     tags: ["Java 21", "Spring Boot 3", "Vue 3", "PostgreSQL", "WebSocket"],
-    href: "https://github.com/bestxiangest/TeamSync",
-    action: "Repository",
+    route: "teamsync",
+    action: "Case study",
   },
   {
     index: "06",
@@ -154,6 +154,7 @@ const pageMeta = {
   "label-check": { title: "// label check", icon: "02", documentTitle: "Label Check Case Study" },
   "research-frontend": { title: "// research frontend", icon: "03", documentTitle: "Research Frontend Case Study" },
   "esh-inspection": { title: "// ESH inspection", icon: "04", documentTitle: "ESH Inspection Case Study" },
+  teamsync: { title: "// teamsync", icon: "05", documentTitle: "TeamSync Case Study" },
 };
 
 const main = document.querySelector("#main");
@@ -254,7 +255,7 @@ function aboutPage() {
               对接 50 余个金融数据源。
             </p>
             <p>
-              开源侧的 TeamSync 从 15 张核心表的设计到前端页面全部由我自己写。
+              开源侧的 TeamSync 从 17 张核心表的设计到前端页面全部由我自己写，现在跑在企业内网上。
               常用的栈是 <strong>Java / Spring Boot</strong>、Vue 3 / TypeScript、uni-app、ThinkPHP 与 Flask，
               嵌入式用 ESP32 与 STM32。校内担任班级团支部书记与通信电子创新基地负责人，
               也在学院创新创业学生党支部做组织委员。竞赛、专利与荣誉详见
@@ -416,7 +417,7 @@ function experiencePage() {
             <h3>Agent 能力网关（独立设计实现）</h3>
             <ul>
               <li>按 MCP 协议对外暴露 9 个工具，7 个只读、2 个写，覆盖设备定位、履历追溯、备件判断与工单创建。</li>
-              <li>官方 SDK 会顶起 reactor 与 jackson 版本，改为参照客户端实现手写约 300 行 HTTP 与 SSE 传输层。</li>
+              <li>官方 SDK 会顶起 reactor 与 jackson 版本，改为参照客户端实现手写约 700 行服务端协议面。</li>
               <li>写操作设票据式人工确认闸门，票据绑定参数指纹，签发、核准与执行全程落库审计。</li>
               <li>tools/list 按用户真实权限过滤，工具不透传租户 ID；确认面板放在设备管理宿主前端而非 AI 前端。</li>
             </ul>
@@ -445,7 +446,7 @@ function experiencePage() {
             <span class="work-label">04 / TEAMSYNC</span>
             <h3>TeamSync 协作系统（独立全栈，已开源）</h3>
             <ul>
-              <li>15 张核心表的结构设计，后端 172 个 Java 文件，前端页面也全部自己写。</li>
+              <li>17 张核心表的结构设计，后端 172 个 Java 文件、75 个接口，前端 146 个 Vue 文件也全部自己写。</li>
               <li>看板支持阶段划分、任务拖拽、子任务与评论，周期计划可按期生成看板任务。</li>
               <li>站内通知用 WebSocket 只推刷新信号，到期与逾期提醒交给定时任务发邮件。</li>
               <li>项目文件与任务附件接入对象存储，鉴权由 JWT 拦截器统一处理。</li>
@@ -503,28 +504,35 @@ const CASE_STUDIES = {
     role: "独立设计并实现",
     context: "青岛华睿源科技有限公司　工业设备资产管理平台",
     summary: "设备资产管理的日常使用集中在跨模块查询：一台设备现在什么状态，上次大修换了哪些件，同类故障以前怎么处理，备件还剩多少。这些信息分散在台账、工单、点检、库存与故障树里，本模块把它们按 MCP 协议开放给智能体调用，让跨模块的查询与派工收敛为一次对话。",
-    facts: [["工具", "7 只读 + 2 写"], ["协议", "MCP over HTTP / SSE"], ["产出", "38 个 Java 文件　17 个测试类"]],
+    facts: [["工具", "7 只读 + 2 写"], ["协议", "MCP over HTTP / SSE"], ["产出", "39 个实现类　17 个测试类"]],
+    shots: [
+      ["agent-01-context", "进入设备详情的智能助手页，会话自动带上当前设备作为上下文，右上角可切换模型与查看已授权工具"],
+      ["agent-02-tools", "模型按需调用网关工具，执行步骤与单次耗时实时回显，推理过程可展开查看"],
+      ["agent-03-answer", "两个工具返回后归纳出结论：无活跃报警、近期维修问题，以及被它自己识别为测试数据的异常工单"],
+    ],
     sections: [
       ["我负责的部分", [
-        "独立完成协议层、工具层、票据闸门与前端确认面板的设计与实现，落在一个已有 262 个 Controller 的多租户 Spring Boot 应用上。",
+        "独立完成协议层、工具层、票据闸门与前端确认面板的设计与实现，落在一个已有 270 余个 Controller 的多租户 Spring Boot 应用上。",
         "9 个工具按设备运维链路组织：设备台账与单台档案、维修与保养履历、点检巡检记录、备件库存与 BOM、设备报警关联、故障树检索，加上备件预占与维修工单创建两个写工具。",
         "为让只读工具拿到准确数据，改了设备管理核心模块的三处查询逻辑。工单查询原来用 LIKE 模糊匹配，设备编号 DEV-001 会命中 13 条工单，模型会把别的设备的故障讲成这一台的，于是补上精确匹配路径。",
-        "tools/list 按当前用户的真实权限过滤，只把能调的工具告诉模型；工具绝不透传租户 ID，以防越租户查询。",
+        "一个工具一个权限码，tools/list 阶段就按当前用户的真实权限过滤，没有授权的工具连名字都不会出现在模型看到的清单里；工具绝不透传租户 ID，以防越租户查询。",
         "工具描述里不能出现尚未注册的工具名。早期有一处描述写了“请改用 device_detail”，而该工具当时并未实现，模型照此调用导致整条推理链中途终止。",
         "确认面板做在设备管理宿主前端而不是 AI 前端，因为令牌与动作都属于设备管理侧；倒计时用服务端返回的剩余秒数加本地计时，轮询只在面板真正可见时运行。",
+        "17 个测试类共 193 个用例，测试代码约为实现代码的七成。",
       ]],
-      ["为什么没用官方 SDK", [
-        "MCP 官方 SDK 2.0.1 会把 reactor-core 顶到 3.7.0、jackson 顶到 2.21，而应用由 Spring Boot 3.2.10 统一管理 reactor 3.6.x 与 jackson 2.15.x。",
-        "在这么大的成熟应用里覆盖全进程依赖，风险与收益不成比例，于是对照 LangChain4j 的客户端实现手写了约 300 行 HTTP 与 SSE 传输层。",
-        "GET 建立 SSE 后首帧必须下发 event: endpoint 告知消息通道地址，所有 JSON-RPC 响应统一由 event: message 推送，POST 只返回 202。",
-        "协议错误走 JSON-RPC error，工具错误走 result.isError。前者在 LangChain4j 侧会抛异常并终止整轮推理，而“当前用户无此权限”这类信息应该让模型看到并自行改正。",
-        "协议层与工具层刻意分置两个包，日后换回官方 SDK 只需要替换协议层。",
+      ["为什么没用官方 MCP SDK", [
+        "官方 SDK 会把 reactor 与 jackson 顶到主工程 BOM 管不住的版本。为一个新模块在几百个 Controller 的成熟应用上做全进程依赖升级，风险与收益不成比例。",
+        "于是对照 LangChain4j 的客户端实现，用 Spring MVC 的 SseEmitter 手写了约 700 行协议面：JSON-RPC 2.0 编解码、会话注册表与 initialize、ping、tools/list、tools/call 等方法，全程没有引入 reactive 栈。",
+        "GET 建立 SSE 后首帧必须下发 event: endpoint 告知消息通道地址，所有 JSON-RPC 响应统一由 event: message 推送，POST 只返回 202；会话靠 25 秒心跳保活，最长存活 30 分钟。",
+        "协议错误走 JSON-RPC error，工具错误走 result.isError。前者在客户端会抛异常并终止整轮推理，而“当前用户无此权限”这类信息应该让模型看到并自行改正。",
+        "手写的只是服务端协议面，客户端侧仍然复用 LangChain4j 的 MCP client；协议层与工具层刻意分置两个包，日后换回官方 SDK 只需要替换协议层。",
       ]],
       ["写操作怎么守住", [
         "模型首次调用不带确认令牌时网关并不执行，只签发一张 PENDING 票据，把将要执行的动作与票据编号作为正常结果返回；人工核准后模型以相同参数附令牌再调一次才真正执行。",
         "安全性不依赖票据编号的保密，它本身就明文回给了模型。真正起作用的是 PENDING 到 APPROVED 这次迁移只存在于人工确认端点上，而模型能触达的通道只有 tools/call，闸门守的是通道差异。",
-        "票据绑定参数指纹，人工同意的是那一组具体参数而不是那个工具，避免一张“领用 1 个轴承”的批准被拿去执行“领用 1000 个”。",
-        "可逆写票据有效期 10 分钟，不可逆写缩短到 3 分钟且确认时必须显式勾选，票据的签发、核准与执行全部落库审计。",
+        "票据绑定入参的 SHA-256 指纹，人工同意的是那一组具体参数而不是那个工具，避免一张“领用 1 个轴承”的批准被拿去执行“领用 1000 个”。",
+        "可逆写票据有效期 10 分钟，不可逆写缩短到 3 分钟且确认时必须显式勾选；撤销句柄还没做出来，所以可逆写目前和不可逆写一样强制人工确认——没有撤销能力的“可逆”只是一句承诺。",
+        "票据的签发、核准、拒绝、消费、执行成功与执行失败分别落库审计，闸门放行与工具真的跑成功是两件事，必须分开记。",
       ]],
     ],
   },
@@ -536,24 +544,30 @@ const CASE_STUDIES = {
     context: "青岛华睿源科技有限公司　汽车零部件生产现场",
     summary: "成品出货前要核对客户系统标签与厂内自制标签是否对应，物料编码、箱号与数量三者都不能错，此前靠人工逐张比对，一次错漏的代价直接落在出货批次上。系统把这道工序搬到 PDA：现场先扫客户标签再扫自制标签，后端按规则判定，结果实时播报并留档。",
     facts: [["客户规则", "四套，可配置"], ["端侧", "PC 管理端 + PDA"], ["栈", "ThinkPHP 6 + Vue 3 + uni-app"]],
+    shots: [
+      ["label-01-rules", "料号对照类规则：系统标签料号与厂内自制编码一对一维护，支持 Excel 模板批量导入。客户名与真实料号已做脱敏处理"],
+      ["label-02-rules-alt", "同一套界面切到另一家客户，字段来源与匹配方式由规则配置决定，核心流程不随客户增加而改动"],
+      ["label-03-records", "核对结果按客户、时间、人员与料号可筛可导出，每次核对的起止时间都留档"],
+      ["label-04-detail", "核对详情保留每次扫码的系统标签料号、自制编码与双方数量，数量不匹配时的二次确认人也一并记下"],
+    ],
     sections: [
       ["我负责的部分", [
-        "独立负责 ThinkPHP 6 后端、Vue 3 与 TypeScript 管理端、uni-app PDA 与 MySQL 数据层。",
-        "设计规则、箱号池、导入批次、核对任务、核对记录与标签明细等表结构，核对结果与明细分三层持久化。",
-        "完成规则增删改停用、Excel 与 PDF 导入、记录详情与导出、App 端鉴权、扫码校验与任务提交。",
+        "独立负责 ThinkPHP 6 后端、Vue 3 与 TypeScript 管理端、uni-app PDA 与 MySQL 数据层，共约 1.2 万行。",
+        "设计规则、箱号池、导入批次、核对任务、核对记录、系统标签逐条明细与 KD 装箱快照共 7 张表，全部软删除。",
+        "完成规则增删改停用、Excel 与 PDF 导入、记录详情与导出、App 端独立鉴权、扫码校验与任务提交，管理端 19 个接口、PDA 端 11 个接口。",
         "整理本地、内网测试与生产三套环境的接口与数据库配置，写了环境切换与前后端构建部署脚本，构建产物附带清单与备份。",
       ]],
       ["四套规则怎么不写成四套代码", [
         "四家整车厂客户的标签体系互不相同：两家按料号直接对照自制编码；一家的箱号要先由 PDF 导入形成独立箱号池，再按 HU 反查核销；还有一套 KD 模式要逐项比对两张键值型二维码里的四个指定字段。",
         "若按客户分别实现，每新增一家都要改动核心流程，于是把差异归纳为字段来源、匹配方式与核销策略三个维度，抽象成可配置规则。",
-        "管理端按客户分页维护规则，支持 Excel 模板批量导入，导入时校验必填项、重复项、无效状态与客户类型。",
-        "带箱号池的那家单独提供池管理，导入后可按核销状态、规则挂接与导入批次查询统计。",
+        "带箱号池的那家单独提供池管理，箱号只有在对应料号已有生效规则时才允许入池，核销走锁定、占用、落定、释放的完整生命周期，已占用的箱号再次扫码会被拦截。",
+        "PDF 导入实现了两种版式的解析器，导入按批次记录，失败行可导出错误报告。",
       ]],
       ["现场输入条件与误操作", [
-        "产线的输入条件并不理想，PDA 端同时兼容相机扫码、手动输入与硬件扫码头三种方式。",
-        "一个产品对应多张客户标签时支持多标签累加后再比对数量；同一任务内重复扫同一张标签会被拦截并提示。",
-        "核对结果按正确、物料不匹配、数量不匹配三类分别语音播报，数量不匹配时允许操作员改数量后二次确认，避免一次误扫作废整个任务。",
-        "记录详情保留每次扫码的客户标签原文、自制标签原文与判定结果，可按时间、人员、物料与箱号筛选导出。",
+        "产线的输入条件并不理想，PDA 端兼容四种输入：全屏相机扫码、页面内嵌的连续扫码、手动键入与硬件扫码头，每条记录都留下扫码来源。",
+        "一个产品对应多张客户标签时支持多标签累加后再比对数量；同一任务内重复扫同一张标签会被拦截，去重以系统标签为准。",
+        "判定结果分进行中、正确、错误、数量错误、已取消与重复六种，分别语音播报；数量不匹配时允许操作员改数量后二次确认，避免一次误扫作废整个任务。",
+        "记录详情保留每次扫码的双方原文与判定结果，可按时间、人员、物料与箱号筛选导出。",
       ]],
     ],
   },
@@ -612,10 +626,47 @@ const CASE_STUDIES = {
       ]],
     ],
   },
+  teamsync: {
+    route: "teamsync",
+    eyebrow: "OPEN SOURCE / FULL-STACK",
+    title: "TeamSync 团队协作与项目管理系统",
+    role: "独立完成全部开发",
+    context: "实习期间独立立项　已部署在企业内网供团队日常使用",
+    source: "Open source / 代码完整公开",
+    repo: "https://github.com/bestxiangest/TeamSync",
+    footerNote: "本项目代码完整公开，可按仓库地址查阅库表设计、后端接口与前端实现。界面截图取自企业内网的真实使用环境，其中的组织标识、项目名称与成员姓名已做脱敏处理。",
+    summary: "团队此前用表格和聊天记录推进项目，任务状态与责任人常常对不上，周期性事务全靠记忆。TeamSync 把项目分组、看板协作、周期计划、统计与通知收在一处，让任务的归属与进度只有一个来源。库表设计、后端接口与前端页面全部由我一个人完成，代码全部公开。",
+    facts: [["后端", "172 个 Java 文件　17 张表"], ["前端", "146 个 Vue 文件"], ["接口", "75 个 REST 端点"]],
+    shots: [
+      ["teamsync-01-board", "看板支持阶段自定义、任务拖拽、负责人与关注人、子任务与活动日志，项目进度按子任务完成度自动汇总"],
+      ["teamsync-02-overview", "管理侧的平台概览：项目与任务总量、逾期与风险项目、近 7 天任务趋势与项目健康分布"],
+      ["teamsync-03-recurring", "周期计划维护重复性事务，支持按周、月、年设定周期并自动生成本期待办。项目名与成员名已做脱敏处理"],
+    ],
+    sections: [
+      ["做了什么", [
+        "后端 Spring Boot 3 与 MyBatis-Plus 配 PostgreSQL，163 个实现类、17 张表、75 个 REST 端点；前端 Vue 3 与 TypeScript，146 个组件与页面。",
+        "项目管理支持共享分组、成员角色与权限控制以及归档移动；看板支持阶段划分、任务拖拽、负责人与关注人、子任务、评论和活动日志。",
+        "周期计划维护周期待办与执行记录，可按期生成看板任务；工作台与统计用 ECharts 呈现项目健康度、任务趋势、成员负载与活动热力，另有看板大屏视图。",
+        "日历视图把任务截止时间与周期计划的执行、截止时间聚合到一起；项目文件与任务附件接入对象存储，鉴权由 JWT 拦截器统一处理。",
+      ]],
+      ["几处实现上的取舍", [
+        "站内通知通过 WebSocket 只推刷新信号而不推内容本体：推送体只有动作类型、任务 ID 与操作人几个字段，客户端收到后再拉取，这样多端同时打开时不会因为推送时序不同而出现状态分歧。",
+        "到期与逾期提醒由每小时一次的定时任务以邮件发出，并留出用户级开关，避免通知量压过有效信息；已发提醒落表去重，任务恢复正常时回收提醒记录。",
+        "未读计数与通知中心共用同一份查询逻辑，保证角标数字和列表内容一致。",
+      ]],
+      ["为什么把它开源", [
+        "这是我在实习期间独立完成的完整系统，从表结构到前端页面都由我决定，因此可以公开全部代码作为工程能力的直接证据。",
+        "另外两个企业项目受版权与保密约束无法提供源码，本项目可作为代码层面的替代参考。",
+        "系统已在企业内网真实使用，团队用它管着几十个项目与四百余条任务，不是只跑通了演示流程的作品。",
+      ]],
+    ],
+  },
 };
 
 function caseStudyPage(kind) {
   const data = CASE_STUDIES[kind];
+  const shots = data.shots ?? [];
+  const shotsOrder = data.sections.length + 3;
 
   return `
     <section class="page page--case-study" data-page="${data.route}">
@@ -631,7 +682,7 @@ function caseStudyPage(kind) {
           <aside>
             <span>Role</span><strong>${data.role}</strong>
             <span>Context</span><strong>${data.context}</strong>
-            <span>Source</span><strong>Private / No code link</strong>
+            <span>Source</span><strong>${data.source ?? "Private / No code link"}</strong>
           </aside>
         </header>
         <div class="case-facts reveal" style="--order:2">
@@ -644,9 +695,20 @@ function caseStudyPage(kind) {
               <ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>
             </article>`).join("")}
         </div>
-        <div class="case-footer reveal" style="--order:${data.sections.length + 3}">
-          <p>本项目为公司内部系统。本页只说明本人参与的工作范围与实现要点，不展示源代码、库表结构、客户数据或内部界面。</p>
-          <a class="button-link" href="mailto:${profile.email}">联系了解更多 <span>↗</span></a>
+        ${shots.length ? `
+        <section class="case-shots reveal" style="--order:${shotsOrder}">
+          <h3>界面</h3>
+          ${shots.map(([file, caption]) => `
+            <figure>
+              <img src="./assets/shots/${file}.webp" alt="${caption}" loading="lazy" decoding="async" />
+              <figcaption>${caption}</figcaption>
+            </figure>`).join("")}
+        </section>` : ""}
+        <div class="case-footer reveal" style="--order:${shotsOrder + (shots.length ? 1 : 0)}">
+          <p>${data.footerNote ?? "本项目为公司内部系统。本页只说明本人参与的工作范围与实现要点，界面截图中的组织标识、客户名称与业务数据均已脱敏，不展示源代码与库表结构。"}</p>
+          ${data.repo
+            ? `<a class="button-link" href="${data.repo}" target="_blank" rel="noreferrer">查看源代码 <span>↗</span></a>`
+            : `<a class="button-link" href="mailto:${profile.email}">联系了解更多 <span>↗</span></a>`}
         </div>
       </div>
     </section>`;
@@ -754,6 +816,7 @@ const renderers = {
   "label-check": () => caseStudyPage("label-check"),
   "research-frontend": () => caseStudyPage("research-frontend"),
   "esh-inspection": () => caseStudyPage("esh-inspection"),
+  teamsync: () => caseStudyPage("teamsync"),
 };
 
 function rawRouteFromHash() {
