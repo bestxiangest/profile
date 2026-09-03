@@ -8,6 +8,9 @@ const profile = {
   company: "青岛华睿源科技有限公司",
   role: "软件开发实习生",
   internPeriod: "2025.06 — 2026.07",
+  secondCompany: "山东远盾网络技术股份有限公司",
+  secondRole: "前端开发实习生",
+  secondPeriod: "2026.08",
   githubUrl: "https://github.com/bestxiangest",
   email: "13964140811@vip.163.com",
   musicUrl: "https://nas.lovezzn.com:13149",
@@ -54,7 +57,7 @@ const projects = [
     index: "03",
     title: "Research Analytics Frontend",
     badge: "COMPANY / PRIVATE",
-    description: "证券投研数据平台前端，负责 230 余个 Vue 文件。对接 50 余个金融数据源，把各页重复的表格与筛选收敛进一个自封装的高级表格组件，接口契约以运行中的 OpenAPI 为准。",
+    description: "证券投研数据平台前端，负责 230 余个 Vue 文件、50 余个金融数据源，用一个月交付完。先把各页重复的表格与筛选收敛进一个自封装的组件，再用 AI Agent 工具按这套结构批量落地页面。",
     tags: ["Vue 3", "Element Plus", "Pinia", "Vite", "OpenAPI"],
     route: "research-frontend",
     action: "Case study",
@@ -251,8 +254,8 @@ function aboutPage() {
             <p>
               企业侧交付过三件事：汽车零部件产线的成品标签核对系统，PC 管理端、后端与 PDA 三端由我独立完成；
               设备资产管理平台的 Agent 能力网关，把业务能力按 MCP 协议开给智能体调用，写操作必须过人工确认闸门；
-              还有安全巡检模块的结构升级与生产维护。另有一段证券投研平台的前端工作，负责 230 余个 Vue 文件、
-              对接 50 余个金融数据源。
+              还有安全巡检模块的结构升级与生产维护。另有一段为期一个月的证券投研平台前端工作，负责 230 余个 Vue 文件、
+              对接 50 余个金融数据源，靠先定组件边界再用 AI Agent 工具批量落地在单月内交付完。
             </p>
             <p>
               开源侧的 TeamSync 从 17 张核心表的设计到前端页面全部由我自己写，现在跑在企业内网上。
@@ -408,8 +411,7 @@ function experiencePage() {
           一年多的实习里同时推进了四件事，交付物都要在真实环境里跑：设备管理平台的 Agent 能力网关由我独立设计实现；
           成品标签核对系统的 PC 管理端、后端与 PDA 三端由我独立完成；安全巡检模块做了结构升级并在生产环境持续维护；
           TeamSync 从库表设计到前端页面全部自己写完并已开源。日常用 AI 加快起草，
-          但权限边界、状态流转和上线结果都自己复核一遍。此外还有一段证券投研平台的前端开发经历，
-          负责 230 余个 Vue 文件，要点写在<a href="#/research-frontend/" data-route="research-frontend">案例页</a>里。
+          但权限边界、状态流转和上线结果都自己复核一遍。
         </p>
         <div class="experience-grid">
           <article class="experience-card reveal" style="--order:2">
@@ -450,6 +452,25 @@ function experiencePage() {
               <li>看板支持阶段划分、任务拖拽、子任务与评论，周期计划可按期生成看板任务。</li>
               <li>站内通知用 WebSocket 只推刷新信号，到期与逾期提醒交给定时任务发邮件。</li>
               <li>项目文件与任务附件接入对象存储，鉴权由 JWT 拦截器统一处理。</li>
+            </ul>
+          </article>
+        </div>
+        <div class="experience-head reveal" style="--order:6; margin-top:56px">
+          <div>
+            <span class="eyebrow">FRONTEND DEVELOPMENT INTERN</span>
+            <h2>${profile.secondCompany}</h2>
+          </div>
+          <div class="experience-duration">${profile.secondPeriod}<br />ONE-MONTH SPRINT</div>
+        </div>
+        <div class="experience-grid experience-grid--single">
+          <article class="experience-card reveal" style="--order:7">
+            <span class="work-label">05 / RESEARCH FRONTEND</span>
+            <h3>证券投研数据平台前端（单月交付）</h3>
+            <ul>
+              <li>负责基础数据、题材、行业、打板与自选等模块共 230 余个 Vue 文件，对接 50 余个金融数据源。</li>
+              <li>把各页重复的表格与筛选收敛进一个自封装的高级表格组件，再用 AI Agent 工具按这套结构批量落地页面。</li>
+              <li>契约以运行中的 OpenAPI 为准而非本地快照，不用 Mock 数据伪造功能跑通——这两条是批量生成时的验收线。</li>
+              <li>字段缺失或语义不一致时先判断根因，提最小后端修改需求，写过多个模块的接口重构建议文档。</li>
             </ul>
           </article>
         </div>
@@ -576,9 +597,9 @@ const CASE_STUDIES = {
     eyebrow: "COMPANY PROJECT / DATA-HEAVY FRONTEND",
     title: "证券投研数据平台前端",
     role: "前端开发",
-    context: "山东远盾网络技术股份有限公司　证券投研数据服务",
-    summary: "面向证券投研的数据服务平台前端，涉及 230 余个 Vue 文件。基础数据模块工作量最大，对接 50 余个金融数据源，每个数据源对应一个列表页和部分详情页，重复的表格与筛选被收敛进一个自封装的通用组件。",
-    facts: [["规模", "230+ 个 Vue 文件"], ["数据源", "50+ 个"], ["栈", "Vue 3 + Element Plus + Pinia"]],
+    context: "山东远盾网络技术股份有限公司　2026.08　单月交付",
+    summary: "面向证券投研的数据服务平台前端，涉及 230 余个 Vue 文件。基础数据模块工作量最大，对接 50 余个金融数据源，每个数据源对应一个列表页和部分详情页。这段实习只有一个月，我在这一个月里把前端待开发的部分全部交付完成，靠的是把重复结构收敛成一个组件，再用 AI Agent 工具批量落地。",
+    facts: [["规模", "230+ 个 Vue 文件"], ["数据源", "50+ 个"], ["周期", "单月交付"]],
     sections: [
       ["我负责的部分", [
         "基础数据、题材、典型题材、行业、涨价概念、自选、趋势、主板打板、科创打板、业绩与天气等模块的前端开发。",
@@ -591,11 +612,12 @@ const CASE_STUDIES = {
         "自封装的高级表格组件统一处理密度、全屏、列显隐、斑马纹、表头背景、高度计算与内置分页。",
         "筛选区统一用固定定位结构把搜索表单和工具栏排到同一行，避免每个页面重复实现布局。",
       ]],
-      ["接口协作上的规矩", [
-        "请求参数统一驼峰命名，日期统一转成 YYYYMMDD 提交，接口契约以运行中的 OpenAPI 为准，不维护本地快照。",
-        "不用 Mock 数据伪造功能完成，功能以真实接口跑通为准。",
-        "遇到查询慢、字段缺失或语义不一致，先确认根因在前端还是后端，再提最小后端修改需求，而不是在前端打补丁掩盖。",
-        "为此写过题材、行业、涨价概念、自选、趋势、打板与天气等多个模块的后端接口重构建议文档。",
+      ["一个月交付完，工具做什么，人做什么", [
+        "五十多个页面结构高度相似，这类工作交给 AI Agent 工具批量生成是合适的，单月完成的规模主要来自这里。",
+        "但工具不替我决定哪些重复该抽出来。先定下通用表格与筛选区的边界，再让生成的页面都落在这套结构上，否则批量产出的只会是五十份互不相同的重复代码。",
+        "接口协作的规矩其实是给生成代码设的验收线：请求参数统一驼峰命名，日期统一转成 YYYYMMDD 提交，契约以运行中的 OpenAPI 为准而不维护本地快照。",
+        "不用 Mock 数据伪造功能完成，一律以真实接口跑通为准。这条对批量生成的页面尤其要紧，Mock 能让一个页面看起来做完了而实际没打通。",
+        "字段缺失、查询慢或语义不一致时先判断根因在前端还是后端，再提最小后端修改需求，而不是让前端兜住、把问题藏进代码里；为此写过题材、行业、涨价概念、自选、趋势、打板与天气等多个模块的后端接口重构建议文档。",
       ]],
     ],
   },

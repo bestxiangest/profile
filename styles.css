@@ -704,6 +704,16 @@ body.ready .loader {
   margin-top: 30px;
 }
 
+/* 第二段实习只有一个项目，卡片跨满宽度；此时内容自然变矮，不再用两列时的最小高度撑高 */
+
+.experience-grid--single {
+  grid-template-columns: 1fr;
+}
+
+.experience-grid--single .experience-card {
+  min-height: 0;
+}
+
 .experience-card {
   position: relative;
   min-height: 320px;
