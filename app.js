@@ -7,7 +7,7 @@ const profile = {
   grade: "2027 届",
   company: "青岛华睿源科技有限公司",
   role: "软件开发实习生",
-  internPeriod: "2025.06 — 2026.06",
+  internPeriod: "2025.06 — 2026.07",
   githubUrl: "https://github.com/bestxiangest",
   email: "13964140811@vip.163.com",
   musicUrl: "https://nas.lovezzn.com:13149",
@@ -402,10 +402,10 @@ function experiencePage() {
             <span class="eyebrow">SOFTWARE DEVELOPMENT INTERN</span>
             <h2>${profile.company}</h2>
           </div>
-          <div class="experience-duration">${profile.internPeriod}<br />ONE-YEAR INTERNSHIP</div>
+          <div class="experience-duration">${profile.internPeriod}<br />13-MONTH INTERNSHIP</div>
         </div>
         <p class="reveal" style="--order:1; margin-top:28px">
-          一年实习里同时推进了四件事，交付物都要在真实环境里跑：设备管理平台的 Agent 能力网关由我独立设计实现；
+          一年多的实习里同时推进了四件事，交付物都要在真实环境里跑：设备管理平台的 Agent 能力网关由我独立设计实现；
           成品标签核对系统的 PC 管理端、后端与 PDA 三端由我独立完成；安全巡检模块做了结构升级并在生产环境持续维护；
           TeamSync 从库表设计到前端页面全部自己写完并已开源。日常用 AI 加快起草，
           但权限边界、状态流转和上线结果都自己复核一遍。此外还有一段证券投研平台的前端开发经历，
@@ -576,7 +576,7 @@ const CASE_STUDIES = {
     eyebrow: "COMPANY PROJECT / DATA-HEAVY FRONTEND",
     title: "证券投研数据平台前端",
     role: "前端开发",
-    context: "山东远端网络科技股份有限公司　证券投研数据服务",
+    context: "山东远盾网络技术股份有限公司　证券投研数据服务",
     summary: "面向证券投研的数据服务平台前端，涉及 230 余个 Vue 文件。基础数据模块工作量最大，对接 50 余个金融数据源，每个数据源对应一个列表页和部分详情页，重复的表格与筛选被收敛进一个自封装的通用组件。",
     facts: [["规模", "230+ 个 Vue 文件"], ["数据源", "50+ 个"], ["栈", "Vue 3 + Element Plus + Pinia"]],
     sections: [
